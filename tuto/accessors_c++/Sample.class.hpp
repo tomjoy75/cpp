@@ -3,23 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   Sample.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/26 00:46:18 by joyeux            #+#    #+#             */
-/*   Updated: 2024/07/26 18:47:10 by joyeux           ###   ########.fr       */
+/*   Created: 2024/08/13 14:43:00 by tjoyeux           #+#    #+#             */
+/*   Updated: 2024/08/13 14:54:41 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SAMPLE1_CLASS_H
-# define SAMPLE1_CLASS_H
+#ifndef SAMPLE_CLASS_H
+# define SAMPLE_CLASS_H
 
-class Sample1 {
+class	Sample{
+
 public:
-	char	a1;
-	int	a2;
-	float	a3;
+	Sample( void );
+	~Sample( void );
+	void	setBar(int foo) ;
+	int		getBar( void ) const;
 
-	Sample1( char p1, int p2, float p3); //Constructeur
-	~Sample1( void ); //Destructeur
+private:
+	int		_bar;
+	void	_foo( void );
+
 };
+
 #endif

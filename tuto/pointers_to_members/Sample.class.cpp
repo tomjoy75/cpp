@@ -3,29 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   Sample.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/26 00:51:53 by joyeux            #+#    #+#             */
-/*   Updated: 2024/07/26 01:12:42 by joyeux           ###   ########.fr       */
+/*   Created: 2024/08/13 17:36:01 by tjoyeux           #+#    #+#             */
+/*   Updated: 2024/08/13 17:50:35 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Sample.class.hpp"
 
-Sample::Sample( void ) { // Acces au constructeur Sample de la classe Sample
-			 // Le constructeur et le destructeur n'ont pas de type de retour
+Sample::Sample( void ): foo(0){
 
-	std::cout <<"Constructor called" << std::endl;
+	std::cout << "Constructor called" << std::endl;
+
 	return;
 }
 
-Sample::~Sample( void ) {
-	std::cout <<"Destructor called" << std::endl;
+Sample::~Sample( void ){
+
+	std::cout << "Comstructor destroyed" << std::endl;
+
 	return;
 }
 
-void	Sample::bar( void ) {
-	std::cout << "Member function bar called" << std::endl;
+void	Sample::bar( void ) const{
+
+	std::cout << "function bar launched" << std::endl;
+
 	return;
 }

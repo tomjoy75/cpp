@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_this.cpp                                      :+:      :+:    :+:   */
+/*   Sample.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/26 01:42:00 by joyeux            #+#    #+#             */
-/*   Updated: 2024/07/26 01:43:17 by joyeux           ###   ########.fr       */
+/*   Created: 2024/08/13 16:52:36 by tjoyeux           #+#    #+#             */
+/*   Updated: 2024/08/13 16:58:25 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Sample.class.hpp"
 
-int	main() {
-	Sample	instance;
+Sample::Sample( void ){
 
-	return 0;
+	std::cout << "Constructor called" << std::endl;
+	Sample::nbInst++;
+
+	return;
 }
+
+Sample::~Sample( void ){
+
+	std::cout << "Constructor destroyed" << std::endl;
+	Sample::nbInst--;
+
+	return;
+}
+
+int	Sample::getNbInst( void ){
+
+	return Sample::nbInst;
+}
+
+int	Sample::nbInst = 0;
