@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:30:42 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/15 14:47:30 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/16 22:53:59 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 int	main(void)
 {
 	Contact	first("tom", "joy", "gogo", "5151", "special");
+	first.show();
 	return (0);
 }

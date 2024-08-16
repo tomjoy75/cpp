@@ -6,14 +6,14 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:28:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/15 14:49:50 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/16 22:51:08 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Contact.class.hpp"
 
-Contact::Contact( char *fn, char *ln, char *n, char *p, char *s ): f_name(fn), l_name(ln), nickname(n), phone_num(p), secret(s){
+Contact::Contact( std::string fn, std::string ln, std::string n, std::string p, std::string s ): f_name(fn), l_name(ln), nickname(n), phone_num(p), secret(s){
 	std::cout << "Constructor launched" << std::endl;
 
 	return;
