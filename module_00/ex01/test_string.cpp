@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   test_string.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 14:30:42 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/17 16:59:42 by tjoyeux          ###   ########.fr       */
+/*   Created: 2024/08/17 16:20:44 by tjoyeux           #+#    #+#             */
+/*   Updated: 2024/08/17 17:01:07 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Contact.class.hpp"
+#include <iomanip>
+#include <string>
 
-int	main(void)
-{
-	Contact	first("tom", "joy", "gogo", "5151", "special");
-	first.show();
+/*
+int	main(void){
 
-	std::cout << "ton nom est " << first.getFName() << " et ton prenom est " << first.getLName() << std::endl;
+	std::string	word = "None";
+
+	while (word != "exit"){
+
+		std::cout << "Rentrez un mot : ";
+		std::cin >> word;
+		if (word.length() > 10)
+		{
+			word.resize(10);
+			word[9] = '.';
+		}
+			
+		std::cout << "|" << std::setw(10) << word << "|" << std::endl;
+	}
 	return (0);
-}
+}*/

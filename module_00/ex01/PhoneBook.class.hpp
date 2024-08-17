@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:56:08 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/15 14:11:32 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/17 18:05:38 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_CLASS_H
 # define PHONEBOOK_CLASS_H
 
+# include <iostream>
 class	PhoneBook{
 
 public:
@@ -24,7 +25,8 @@ public:
 	void	exit() const;
 
 private:
-
-
+	
+	Contact	contacts[8];
+	void	fillPhoneBook( void );
 };
 #endif

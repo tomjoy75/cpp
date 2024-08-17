@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:07:31 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/16 22:49:59 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/17 18:06:43 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,25 @@ public:
 	Contact( std::string fn, std::string ln, std::string n, std::string p, std::string s);
 	~Contact( void );
 
-	void	show( void );
+	void		show( void ) const;
+	std::string	getFName( void ) const;
+	std::string	getLName( void ) const;
+	std::string	getNickname( void ) const;
+	std::string	getPhoneNum( void ) const;
+	std::string	getSecret( void ) const;
+	// void		setFName( std::string str);
+	// void		setLName( std::string str);
+	// void		setNickname( std::string str);
+	// void		setPhoneNum( std::string str);
+	// void		setSecret( std::string str);
+
 
 private:
-	std::string	f_name;
-	std::string l_name;
-	std::string	nickname;
-	std::string	phone_num;
-	std::string	secret;
+	std::string	_fName;
+	std::string _lName;
+	std::string	_nickname;
+	std::string	_phoneNum;
+	std::string	_secret;
 
 };
 
