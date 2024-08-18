@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:28:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/17 18:03:08 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/18 23:13:42 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 #include "Contact.class.hpp"
 
 Contact::Contact( std::string fn, std::string ln, std::string n, std::string p, std::string s ): _fName(fn), _lName(ln), _nickname(n), _phoneNum(p), _secret(s){
-	std::cout << "Constructor launched" << std::endl;
+	std::cout << "Constructor1 du Contact launched" << std::endl;
 
 	return;
 }
 
+Contact::Contact():_fName("Thomassssssssssssssssss"), _lName("Joyeux"), _nickname("toto"), _phoneNum("01000000"), _secret("None"){
+	std::cout << "Constructor2 du Contact launched" << std::endl;
+	return;
+}
+
 Contact::~Contact( void ){
-	std::cout << "Destructor launched" << std::endl;
+	std::cout << "Destructor du Contact launched" << std::endl;
 
 	return;
 }

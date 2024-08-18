@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:07:31 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/17 18:06:43 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/17 21:53:13 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class	Contact{
 
 public:
 	Contact( std::string fn, std::string ln, std::string n, std::string p, std::string s);
+	Contact( void );
 	~Contact( void );
 
 	void		show( void ) const;
