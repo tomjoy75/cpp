@@ -6,13 +6,13 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:37:53 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/18 23:12:49 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/20 03:31:45 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
 
-PhoneBook::PhoneBook( void ): _nbContact( 2 ){
+PhoneBook::PhoneBook( void ): _nbContact( 0 ){
 	std::cout << "Constructeur du PhoneBook launched" << std::endl;
 	// Lancement du programme
 //	this->fillPhoneBook(); // A enlever
@@ -34,6 +34,7 @@ void	PhoneBook::start( void ){
 	do{
 		std::cout << "(A)dd, (S)earch or (E)xit" << std::endl;
 		std::cin >> c;
+		std::cin.ignore();
 		switch (c){
 			case 'A':
 				this->add();
@@ -55,28 +56,57 @@ void	PhoneBook::start( void ){
 // stocke all the vars and create the Contact
 //	return it
 void	PhoneBook::add( void ){
+	std::string	name;
 
 	std::cout << "AddTest" << std::endl;
+	if (this->_nbContact < 8)
+		this->_nbContact++;
+	std::cout << "Name : ";
+	std::getline(std::cin, name);
+	std::cout << "Your name is " << name << std::endl;
 //	std::cout << "First Name : "	
 }
 // void	PhoneBook::fillPhoneBook( void ){
 // 	this->
 
+void	header( void ){
+
+	std::cout << std::setw(10) << "Index" << "|";
+	std::cout << std::setw(10) << "First Name" << "|";
+	std::cout << std::setw(10) << "Last Name" << "|";
+	std::cout << std::setw(10) << "Nickname" << std::endl;
+	std::cout <<"___________________________________________" << std::endl;
+}
+
+std::string	normalizeWord(std::string str){
+
+	if (str.length() > 10){
+		str.resize(10);
+		str[9] = '.';
+	}
+	return (str);
+}
+
 // Search function
 void	PhoneBook::search( void ) const{
 	
-	std::string	word;
+	int	j;
 
+	if (_nbContact < 1){
+		std::cout << "Not enough contact" << std::endl;
+		return;
+	}
+	header();
 	for (int i = 0; i < _nbContact; i++)
 	{
-		word = _contacts[i].getFName();
-		if (word.length() > 10){
-			word.resize(10);
-			word[9] = '.';
-		}
-		std::cout<< std::setw(10) << word << "|";
-		std::cout<< std::setw(10) << _contacts[i].getLName() << "|";
-		std::cout<< std::setw(10) << _contacts[i].getNickname() << "|";
-		std::cout<< std::setw(10) << _contacts[i].getPhoneNum() << std::endl;
+		std::cout << std::setw(10) << i + 1 << "|";
+		std::cout<< std::setw(10) << normalizeWord(_contacts[i].getFName()) << "|";
+		std::cout<< std::setw(10) << normalizeWord(_contacts[i].getLName()) << "|";
+		std::cout<< std::setw(10) << normalizeWord(_contacts[i].getNickname()) << std::endl;
 	}	
+	do {
+		std::cout << "Choose index : " ;
+		std::cin >> j;
+	} while (j < 1 || j > _nbContact);
+	_contacts[j - 1].showContact();
 }

@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:07:31 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/17 21:53:13 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/20 03:11:43 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ public:
 	Contact( void );
 	~Contact( void );
 
-	void		show( void ) const;
+//	void		show( void ) const;
 	std::string	getFName( void ) const;
 	std::string	getLName( void ) const;
 	std::string	getNickname( void ) const;
-	std::string	getPhoneNum( void ) const;
-	std::string	getSecret( void ) const;
+//	std::string	getPhoneNum( void ) const;
+//	std::string	getSecret( void ) const;
+//	void		showTab( void ) const;
+	void		showContact( void ) const;
 	// void		setFName( std::string str);
 	// void		setLName( std::string str);
 	// void		setNickname( std::string str);

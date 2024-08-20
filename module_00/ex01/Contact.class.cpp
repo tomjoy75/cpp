@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:28:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/18 23:13:42 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/20 03:16:11 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ Contact::~Contact( void ){
 	return;
 }
 
-void	Contact::show( void ) const{
+/*void	Contact::show( void ) const{
 	std::cout << this->_fName << " | " <<  this->_lName << " | " << this->_nickname << std::endl; 
 
 	return;
-}
+}*/
 
 std::string	Contact::getFName( void ) const{
 	return (_fName);
@@ -48,12 +48,21 @@ std::string	Contact::getNickname( void ) const{
 	return (_nickname);
 }
 
-std::string	Contact::getPhoneNum( void ) const{
+/*std::string	Contact::getPhoneNum( void ) const{
 	return (_phoneNum);
+	
 }
 
 std::string	Contact::getSecret( void ) const{
 	return (_secret);
-}
+}*/
 
 //void	Contact::setFName( string str);
+
+void		Contact::showContact( void ) const{
+	std::cout << "First Name : " << _fName << std::endl;
+	std::cout << "Last Name : " << _lName << std::endl;
+	std::cout << "Nickname : " << _nickname << std::endl;
+	std::cout << "Phone number : " << _phoneNum << std::endl;
+	std::cout << "Best kept secret : " << _secret << std::endl;
+}
