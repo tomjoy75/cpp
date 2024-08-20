@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:37:53 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/20 03:31:45 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/20 21:09:37 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,29 @@ PhoneBook::~PhoneBook( void ){
 // Create a menu and call the right function
 void	PhoneBook::start( void ){
 
-	char	c;
+	std::string	str;
 
 	do{
 		std::cout << "(A)dd, (S)earch or (E)xit" << std::endl;
-		std::cin >> c;
-		std::cin.ignore();
-		switch (c){
-			case 'A':
-				this->add();
-				break;
-			case 'S':
-				this->search();
-				break;
-			case 'E':
-				break;
-			default:
-				std::cout << "Wrong command" << std::endl;
-				break;
+		std::getline(std::cin, str);
+		if (str.length() == 1){
+			switch (str[0]){
+				case 'A':
+					this->add();
+					break;
+				case 'S':
+					this->search();
+					break;
+				case 'E':
+					break;
+				default:
+					std::cout << "Wrong command" << std::endl;
+					break;
+			}
 		}
-	} while (c != 'E');
+		else
+			std::cout << "Wrong command" << std::endl;
+	} while (str != "E");
 	std::cout << "Program finished" << std::endl;
 }
 
@@ -59,7 +62,7 @@ void	PhoneBook::add( void ){
 	std::string	name;
 
 	std::cout << "AddTest" << std::endl;
-	if (this->_nbContact < 8)
+	if (this->_nbContact < CONTACT_MAX)
 		this->_nbContact++;
 	std::cout << "Name : ";
 	std::getline(std::cin, name);
@@ -71,6 +74,7 @@ void	PhoneBook::add( void ){
 
 void	header( void ){
 
+	std::cout <<"___________________________________________" << std::endl;
 	std::cout << std::setw(10) << "Index" << "|";
 	std::cout << std::setw(10) << "First Name" << "|";
 	std::cout << std::setw(10) << "Last Name" << "|";
@@ -90,7 +94,7 @@ std::string	normalizeWord(std::string str){
 // Search function
 void	PhoneBook::search( void ) const{
 	
-	int	j;
+	std::string	idx;
 
 	if (_nbContact < 1){
 		std::cout << "Not enough contact" << std::endl;
@@ -104,9 +108,16 @@ void	PhoneBook::search( void ) const{
 		std::cout<< std::setw(10) << normalizeWord(_contacts[i].getLName()) << "|";
 		std::cout<< std::setw(10) << normalizeWord(_contacts[i].getNickname()) << std::endl;
 	}	
+	std::cout <<"___________________________________________" << std::endl;
 	do {
-		std::cout << "Choose index : " ;
-		std::cin >> j;
+		std::cout << "Choose index between 1 and " << _nbContact << ": " ; // TODO: Check avec une lettre
+		std::getline(std::cin, idx);
+/*		if (!std::cin)
+		{
+			std::cin.clear();
+			std::cin.ignore();
+		}
+		std::cin.ignore();*/
 	} while (j < 1 || j > _nbContact);
 	_contacts[j - 1].showContact();
 }

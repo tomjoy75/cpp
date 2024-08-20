@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:56:08 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/20 02:53:44 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/20 14:17:01 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <iomanip>
 # include "Contact.class.hpp"
+
+# define CONTACT_MAX 8
 
 class	PhoneBook{
 
@@ -30,7 +32,7 @@ public:
 
 private:
 	
-	Contact	_contacts[8];
+	Contact	_contacts[CONTACT_MAX];
 	int	_nbContact;
 //	void	_fillPhoneBook( void );
 };

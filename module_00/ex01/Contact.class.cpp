@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:28:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/20 03:16:11 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/20 03:38:29 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,12 @@ std::string	Contact::getSecret( void ) const{
 //void	Contact::setFName( string str);
 
 void		Contact::showContact( void ) const{
+	std::cout << std::endl;
 	std::cout << "First Name : " << _fName << std::endl;
 	std::cout << "Last Name : " << _lName << std::endl;
 	std::cout << "Nickname : " << _nickname << std::endl;
 	std::cout << "Phone number : " << _phoneNum << std::endl;
 	std::cout << "Best kept secret : " << _secret << std::endl;
+	std::cout << std::endl;
 }
+
