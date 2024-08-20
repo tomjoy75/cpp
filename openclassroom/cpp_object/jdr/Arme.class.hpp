@@ -6,12 +6,15 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:10:10 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/19 16:15:58 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/19 22:23:01 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARME_CLASS_H
 # define ARME_CLASS_H
+
+# include <string>
+# include <iostream>
 
 class	Arme{
 
