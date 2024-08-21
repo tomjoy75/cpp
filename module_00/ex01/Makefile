@@ -6,16 +6,18 @@
 #    By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/08/15 13:00:25 by tjoyeux          ###   ########.fr        #
+#    Updated: 2024/08/21 10:58:29 by tjoyeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= megaphone
+NAME	= myPhoneboook
 CC		= c++
 CFLAGS	= -Wall -Werror -Wextra -std=c++98
 RM		= rm -f
 
-SRCS	= ./megaphone.cpp
+SRCS	= ./Contact.class.cpp \
+		  ./PhoneBook.class.cpp \
+		  ./main.cpp
 OBJS	= $(SRCS:.cpp=.o)
 
 all	: $(NAME)
