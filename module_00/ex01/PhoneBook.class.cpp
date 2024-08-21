@@ -6,16 +6,16 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:37:53 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/20 21:09:37 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/21 11:29:12 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
+//#include <limits>
 
 PhoneBook::PhoneBook( void ): _nbContact( 0 ){
 	std::cout << "Constructeur du PhoneBook launched" << std::endl;
 	// Lancement du programme
-//	this->fillPhoneBook(); // A enlever
 	this->start();
 
 	return;
@@ -69,8 +69,6 @@ void	PhoneBook::add( void ){
 	std::cout << "Your name is " << name << std::endl;
 //	std::cout << "First Name : "	
 }
-// void	PhoneBook::fillPhoneBook( void ){
-// 	this->
 
 void	header( void ){
 
@@ -94,7 +92,8 @@ std::string	normalizeWord(std::string str){
 // Search function
 void	PhoneBook::search( void ) const{
 	
-	std::string	idx;
+//	std::string	idx;
+	int	idx;
 
 	if (_nbContact < 1){
 		std::cout << "Not enough contact" << std::endl;
@@ -110,14 +109,12 @@ void	PhoneBook::search( void ) const{
 	}	
 	std::cout <<"___________________________________________" << std::endl;
 	do {
-		std::cout << "Choose index between 1 and " << _nbContact << ": " ; // TODO: Check avec une lettre
-		std::getline(std::cin, idx);
-/*		if (!std::cin)
-		{
+		std::cout << "Choose index between 1 and " << _nbContact << ": " ;
+		std::cin >> idx; 
+		if (!std::cin)
 			std::cin.clear();
-			std::cin.ignore();
-		}
-		std::cin.ignore();*/
-	} while (j < 1 || j > _nbContact);
-	_contacts[j - 1].showContact();
+//		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cin.ignore(256, '\n');
+	} while (idx < 1 || idx > _nbContact);
+	_contacts[idx - 1].showContact();
 }
