@@ -6,14 +6,14 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:28:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/20 03:38:29 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/21 14:43:16 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Contact.class.hpp"
 
-Contact::Contact( std::string fn, std::string ln, std::string n, std::string p, std::string s ): _fName(fn), _lName(ln), _nickname(n), _phoneNum(p), _secret(s){
+Contact::Contact( const std::string &fn, const std::string &ln, const std::string &n, const std::string &p, const std::string &s ): _fName(fn), _lName(ln), _nickname(n), _phoneNum(p), _secret(s){
 	std::cout << "Constructor1 du Contact launched" << std::endl;
 
 	return;
@@ -61,11 +61,11 @@ std::string	Contact::getSecret( void ) const{
 
 void		Contact::showContact( void ) const{
 	std::cout << std::endl;
-	std::cout << "First Name : " << _fName << std::endl;
+	std::cout << BLUE << "First Name : " << _fName << std::endl;
 	std::cout << "Last Name : " << _lName << std::endl;
 	std::cout << "Nickname : " << _nickname << std::endl;
 	std::cout << "Phone number : " << _phoneNum << std::endl;
 	std::cout << "Best kept secret : " << _secret << std::endl;
-	std::cout << std::endl;
+	std::cout << RESET << std::endl;
 }
 

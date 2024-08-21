@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:07:31 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/20 03:11:43 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/21 14:44:21 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,19 @@
 
 # include <string>
 
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define BLUE "\033[0;34m"
+# define MAGENTA "\033[0;35m"
+# define RESET "\033[0m"
+# define BOLD "\033[1m"
+# define ITALIC "\033[3m"
+# define BLINK "\e[5m"
+
 class	Contact{
 
 public:
-	Contact( std::string fn, std::string ln, std::string n, std::string p, std::string s);
+Contact( const std::string &fn, const std::string &ln, const std::string &n, const std::string &p, const std::string &s);
 	Contact( void );
 	~Contact( void );
 
