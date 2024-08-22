@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:56:08 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/22 14:19:03 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/22 12:34:15 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <iomanip>
 # include "Contact.class.hpp"
 
-# define CONTACT_MAX 3
+# define CONTACT_MAX 8
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
 # define BLUE "\033[0;34m"
@@ -36,10 +36,13 @@ public:
 	void	start( void );
 	void	add( void );
 	void	search( void ) const;
+//	void	exit( void ) const;
 
 private:
+	
 	void	_move_contact( void );
 	Contact	_contacts[CONTACT_MAX];
 	int	_nbContact;
+//	void	_fillPhoneBook( void );
 };
 #endif

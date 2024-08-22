@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:37:53 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/21 16:21:56 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/22 11:20:00 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 //#include <limits>
 
 PhoneBook::PhoneBook( void ): _nbContact( 0 ){
-	std::cout << "Constructeur du PhoneBook launched" << std::endl;
-	// Lancement du programme
+	std::cout << GREEN << BOLD << "Welcome to Your PhoneBook" << RESET << std::endl;
 	this->start();
 
 	return;
 }
 
 PhoneBook::~PhoneBook( void ){
-	std::cout << "Destructeur du PhoneBook launched" << std::endl;
+	std::cout << GREEN << BOLD << "Good Bye!" << RESET << std::endl;
 	return;
 }
 
@@ -62,9 +61,13 @@ void	PhoneBook::_move_contact( void ){
 	}
 }
 
+bool	_isPhoneNum(const std::string	&str){
+	return (str.find_first_not_of("0123456789 ") == std::string::npos);
+}
+
 // launch the input to create a contact
 // stock all the vars and create the Contact
-void	PhoneBook::add( void ){ //TODO Aucun champs ne doit etre vide
+void	PhoneBook::add( void ){
 	std::string	fName;
 	std::string	lName;
 	std::string	nickname;
@@ -72,22 +75,32 @@ void	PhoneBook::add( void ){ //TODO Aucun champs ne doit etre vide
 	std::string	secret;
 
 	std::cout << "----------ADD----------" << std::endl;
-	std::cout << "First name : ";
-	std::getline(std::cin, fName);
-	std::cout << "Last name : ";
-	std::getline(std::cin, lName);
-	std::cout << "Nickname : ";
-	std::getline(std::cin, nickname);
-	std::cout << "Phone : ";
-	std::getline(std::cin, phoneNum);
-	std::cout << "Best kept secret : ";
-	std::getline(std::cin, secret);
+	do{
+		std::cout << "First name : ";
+		std::getline(std::cin, fName);
+	} while (fName.empty());
+	do{
+		std::cout << "Last name : ";
+		std::getline(std::cin, lName);
+	} while (lName.empty());
+	do{
+		std::cout << "Nickname : ";
+		std::getline(std::cin, nickname);
+	} while (nickname.empty());
+	do{
+		std::cout << "Phone : ";
+		std::getline(std::cin, phoneNum);
+	} while (phoneNum.empty() || !_isPhoneNum(phoneNum));
+	do{
+		std::cout << "Best kept secret : ";
+		std::getline(std::cin, secret);
+	} while (secret.empty());
 	if (this->_nbContact < CONTACT_MAX){
 		_contacts[_nbContact] = Contact(fName, lName, nickname, phoneNum, secret);
 		this->_nbContact++;
 	}
 	else if(this->_nbContact == CONTACT_MAX){
-		std::cout << "appel de move_contact" << std::endl;
+		std::cout << RED << ITALIC << "Your PhoneBook is full, we put out the oldest contact to put this new one." << RESET << std::endl;
 		_move_contact();
 		_contacts[CONTACT_MAX - 1] = Contact(fName, lName, nickname, phoneNum, secret);
 	}
