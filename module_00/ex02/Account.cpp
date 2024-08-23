@@ -6,11 +6,13 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:45:41 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/22 16:23:12 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/23 15:28:14 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <ctime>
+#include <iomanip>
 #include "Account.hpp"
 
 Account::Account( int initial_deposit) //TODO : initialization list
@@ -23,43 +25,50 @@ Account::~Account( void ){
 }
 
 // Fonctions non membres
-int	getNbAccounts( void ){
+int	Account::getNbAccounts( void ){
 	return (Account::_nbAccounts);
 }
 
-int	getTotalAmount( void ){
+int	Account::getTotalAmount( void ){
 	return (Account::_totalAmount);
 }
 
-int	getNbDeposits( void ){
-
+int	Account::getNbDeposits( void ){
 	return (Account::_nbDeposits);
 }
 
-int	getNbWithdrawals( void ){
-
+int	Account::getNbWithdrawals( void ){
 	return (Account::_nbWithdrawals);
 }
 
-void	displayAccountsInfos( void ){
-//TODO
+void	Account::displayAccountsInfos( void ){
+
+	_displayTimestamp();
+	std::cout << "account:" << Account::_nbAccounts << ";total:" << Account::_totalAmount << ";deposits:" << Account::_totalNbDeposits << ";withdrawals:" << Account::_totalNbWithdrawals << std::endl;
 }
 
+void	Account::_displayTimestamp( void ){
+	
+	time_t		now = time(NULL);
+	struct tm	*local_time = localtime(&now);
+
+	std::cout << std::put_time(local_time, "[%G%m%d_%H%M%S] ");
+}
 
 // Fonctions membres
-void	Account::makeDeposit( int deposit ){
+void	Account::makeDeposit( int deposit ){//TODO
 
 }
 
-bool	Account::makeWithdrawal( int withdrawal ){
+bool	Account::makeWithdrawal( int withdrawal ){//TODO
 
 }
 
-int		Account::checkAmount( void ) const{
+int		Account::checkAmount( void ) const{//TODO
 
 }
 
-void	Account::displayStatus( void ) const{
+void	Account::displayStatus( void ) const{//TODO
 
 }
 
