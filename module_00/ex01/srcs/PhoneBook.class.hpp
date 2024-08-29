@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:56:08 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/22 12:34:15 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/29 15:15:19 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ public:
 	void	start( void );
 	void	add( void );
 	void	search( void ) const;
-//	void	exit( void ) const;
 
 private:
 	
 	void	_move_contact( void );
 	Contact	_contacts[CONTACT_MAX];
 	int	_nbContact;
-//	void	_fillPhoneBook( void );
 };
 #endif

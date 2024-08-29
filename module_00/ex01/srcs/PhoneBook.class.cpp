@@ -6,12 +6,11 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:37:53 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/22 11:20:00 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/29 15:07:43 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
-//#include <limits>
 
 PhoneBook::PhoneBook( void ): _nbContact( 0 ){
 	std::cout << GREEN << BOLD << "Welcome to Your PhoneBook" << RESET << std::endl;
@@ -33,6 +32,10 @@ void	PhoneBook::start( void ){
 	do{
 		std::cout << GREEN << "(A)dd, (S)earch or (E)xit" << RESET << std::endl;
 		std::getline(std::cin, str);
+		if (std::cin.eof()){
+			std::cout << RED << ITALIC << "\nEOF detected. Leaving the program." << RESET << std::endl;
+			return ;
+		}
 		if (str.length() == 1){
 			switch (str[0]){
 				case 'A':
@@ -62,7 +65,7 @@ void	PhoneBook::_move_contact( void ){
 }
 
 bool	_isPhoneNum(const std::string	&str){
-	return (str.find_first_not_of("0123456789 ") == std::string::npos);
+	return (str.find_first_not_of("0123456789 -") == std::string::npos);
 }
 
 // launch the input to create a contact
@@ -78,23 +81,23 @@ void	PhoneBook::add( void ){
 	do{
 		std::cout << "First name : ";
 		std::getline(std::cin, fName);
-	} while (fName.empty());
+	} while (fName.empty() && !std::cin.eof());
 	do{
 		std::cout << "Last name : ";
 		std::getline(std::cin, lName);
-	} while (lName.empty());
+	} while (lName.empty() && !std::cin.eof());
 	do{
 		std::cout << "Nickname : ";
 		std::getline(std::cin, nickname);
-	} while (nickname.empty());
+	} while (nickname.empty() && !std::cin.eof());
 	do{
 		std::cout << "Phone : ";
 		std::getline(std::cin, phoneNum);
-	} while (phoneNum.empty() || !_isPhoneNum(phoneNum));
+	} while (( phoneNum.empty() || !_isPhoneNum(phoneNum) ) && !std::cin.eof());
 	do{
 		std::cout << "Best kept secret : ";
 		std::getline(std::cin, secret);
-	} while (secret.empty());
+	} while (secret.empty() && !std::cin.eof());
 	if (this->_nbContact < CONTACT_MAX){
 		_contacts[_nbContact] = Contact(fName, lName, nickname, phoneNum, secret);
 		this->_nbContact++;
@@ -147,10 +150,11 @@ void	PhoneBook::search( void ) const{
 	do {
 		std::cout << "Choose index between 1 and " << _nbContact << ": " ;
 		std::cin >> idx; 
-		if (!std::cin)
+		if (std::cin.eof())
+			return ;
+		else if (!std::cin)
 			std::cin.clear();
-//		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cin.ignore(256, '\n');
-	} while (idx < 1 || idx > _nbContact);
+	} while ((idx < 1 || idx > _nbContact));
 	_contacts[idx - 1].showContact();
 }

@@ -6,21 +6,12 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:08:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/15 12:48:53 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/29 12:53:39 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
-void	toupper_str(char *str)
-{
-	while (*str)
-	{
-		if (*str >= 'a' && *str <= 'z')
-			*str -= 32;
-		str++;
-	}
-}
+#include <string>
 
 int	main(int argc, char **argv)
 {
@@ -33,11 +24,12 @@ int	main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 		{
-			toupper_str(argv[i]);
-			std::cout << argv[i];	
+			std::string	str = argv[i];
+			for (int j = 0; j < (int)str.length() ; j++)
+				str[j] = std::toupper(str[j]);
+			std::cout << str;	
 		}
 		std::cout << std::endl;
 	}
 	return (0);
 }
-

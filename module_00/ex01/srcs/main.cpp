@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:30:42 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/17 21:48:45 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/08/29 15:14:50 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,5 @@
 int	main(void)
 {
 	PhoneBook phone1;
-/*	Contact	first("tom", "joy", "gogo", "5151", "special");
-	first.show();
-
-	std::cout << "ton nom est " << first.getFName() << " et ton prenom est " << first.getLName() << std::endl;*/
 	return (0);
 }

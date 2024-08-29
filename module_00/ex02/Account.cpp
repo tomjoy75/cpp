@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:45:41 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/08/26 15:46:47 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/08/29 12:18:53 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iomanip>
 #include "Account.hpp"
 
-Account::Account( int initial_deposit): _amount(initial_deposit), _accountIndex(Account::_nbAccounts)
+Account::Account( int initial_deposit): _accountIndex(Account::_nbAccounts), _amount(initial_deposit)
 {
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
@@ -48,7 +48,7 @@ int	Account::getNbWithdrawals( void ){
 void	Account::displayAccountsInfos( void ){
 
 	_displayTimestamp();
-	std::cout << "account:" << Account::_nbAccounts << ";total:" << Account::_totalAmount << ";deposits:" << Account::_totalNbDeposits << ";withdrawals:" << Account::_totalNbWithdrawals << std::endl;
+	std::cout << "accounts:" << Account::_nbAccounts << ";total:" << Account::_totalAmount << ";deposits:" << Account::_totalNbDeposits << ";withdrawals:" << Account::_totalNbWithdrawals << std::endl;
 }
 
 void	Account::_displayTimestamp( void ){

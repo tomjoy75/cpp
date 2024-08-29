@@ -6,21 +6,20 @@
 #    By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/08/29 15:15:31 by tjoyeux          ###   ########.fr        #
+#    Updated: 2024/08/26 15:54:28 by tjoyeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= myPhoneboook
+NAME		= account
 CC			= c++
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 RM			= rm -f
 
-SRC_PATH	= ./srcs/
+#SRC_PATH	= ./srcs/
 OBJ_PATH	= ./objs/
 
-SRCS		= $(SRC_PATH)Contact.class.cpp \
-			  $(SRC_PATH)PhoneBook.class.cpp \
-			  $(SRC_PATH)main.cpp
+SRCS		= Account.cpp \
+			  tests.cpp 
 OBJS		= $(addprefix $(OBJ_PATH),$(notdir $(SRCS:.cpp=.o)))
 	
 FLAG_FILE	:= .build_started
@@ -31,7 +30,7 @@ all	: $(NAME)
 
 $(NAME)	: $(OBJS)
 	@echo "$(GREEN)$(BOLD)$(ITALIC)$$LINKING$(RESET)\n"
-	@echo "$(MAGENTA)$(BOLD)Linking : $(RESET)$(BLUE)$(ITALIC)$@$(RESET)"
+	@echo "$(MAGENTA)$(BOLD)Linking Server: $(RESET)$(BLUE)$(ITALIC)$@$(RESET)"
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.cpp
@@ -48,6 +47,7 @@ clean :
 	$(RM) -r $(OBJ_PATH)
 	@echo "$(MAGENTA)$(BOLD)Cleaning: $(RESET)$(BLUE)$(ITALIC)$(FLAG_FILE)$(RESET)"
 	$(RM) .build_started
+#	$(RM) *.o
 
 fclean : clean
 	$(RM) $(NAME)
