@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 12:03:25 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/01 15:30:05 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/02 10:32:21 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ public:
 
 //Zombie*	newZombie( std::string name );
 //void	randomChump( std::string name);
-Zombie	*zombieHorde( int N, std::string name){
+Zombie	*zombieHorde( int N, std::string name);
 
 #endif
