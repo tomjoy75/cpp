@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:57:42 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/02 14:40:32 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/03 10:14:51 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ private:
 	std::string	_type;
 
 public:
-//	Weapon( void );// Lequel prendre??
+	Weapon( void );
 	Weapon( std::string const type);
 	~Weapon( void );
 
