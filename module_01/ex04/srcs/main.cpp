@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:54:02 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/03 17:47:34 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/04 10:39:00 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	replaceLine( std::string &line, char *prev, char *post){
 	size_t	pos;
 
 	pos = line.find(prev);
-	if (pos != std::string::npos){
+	while (pos != std::string::npos){
 		line.erase(pos, ((std::string)prev).size());
 		line.insert(pos, post);
+		pos = line.find(prev, pos + ((std::string)post).size());
 	}
 //	std::cout << "TEST:" << post << std::endl;
 	
@@ -28,7 +29,6 @@ void	replaceLine( std::string &line, char *prev, char *post){
 
 int	main(int argc, char **argv){
 
-	//TODO gerer mauvais nombre d'arg
 	if (argc < 4){
 		std::cout << "Wrong number of arguments" << std::endl;
 		return (1);
@@ -46,12 +46,10 @@ int	main(int argc, char **argv){
 
 	std::string	line;
 	while (std::getline(ifs, line)){
-		std::cout << "before : " << line << std::endl;
 		replaceLine(line, argv[2], argv[3]);
-		std::cout << "after : " << line << std::endl;
-		//TODO : Gerer plusieurs occurences dans la meme ligne
+		ofs << line << std::endl; 
 	}
+	ifs.close();
+	ofs.close();
 	return (0);
 }
-	
-

@@ -6,13 +6,13 @@
 #    By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/09/03 12:27:20 by tjoyeux          ###   ########.fr        #
+#    Updated: 2024/09/04 10:28:39 by tjoyeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= superSed
 CC			= c++
-CFLAGS		= -Wall -Werror -Wextra -std=c++98
+CFLAGS		= -Wall -Werror -Wextra -std=c++98 -g3
 RM			= rm -f
 
 SRC_PATH	= ./srcs/
