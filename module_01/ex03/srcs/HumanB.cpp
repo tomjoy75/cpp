@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:23:06 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/03 11:27:10 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/04 09:28:08 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ HumanB::HumanB(std::string name): _name(name){
 }
 
 void	HumanB::attack( void ) const{
-	std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
+	if (this->_weapon)
+		std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
+	else
+		std::cout << this->_name << " can't attack, he has no weapon" << std::endl;
 }
 
 void	HumanB::setWeapon( Weapon &weapon){
