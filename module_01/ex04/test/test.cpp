@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 12:01:46 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/04 16:42:43 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/05 17:28:26 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@
 bool	compareFiles(std::string &file1, std::string &file2){
 
 	std::cout << "TEST: file1 : " << file1 << ", file2 : " << file2 << std::endl;
-	std::ifstream	f1(file1);
-	std::ifstream	f2(file2);
+	std::ifstream	f1(file1.c_str());
+	std::ifstream	f2(file2.c_str());
+	if (!f1.is_open() || !f2.is_open()){
+		std::cout << "Error: Impossible to open the input file" << std::endl;
+		return (1);
+	}
 
 	std::string		line1, line2;
 	while (std::getline(f1, line1) && std::getline(f2, line2)){
