@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 12:01:46 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/05 17:28:26 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/05 17:54:35 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ bool	compareFiles(std::string &file1, std::string &file2){
 int		main( void ){
 	std::string	testDir = "test/test_cases/";
 
-	std::string	inputFiles[] = {"go", "lol"};
-	std::string	expectedOutput[] = {"go.replace", "lol.replace"};
+	std::string	inputFiles[] = {"normal", "empty", "double"};
+	std::string	expectedOutput[] = {"normal.replace", "empty.replace", "double.replace"};
 	std::string	old_word = "foo";
 	std::string	new_word = "bar";
 
-	for (int i = 0; i < 2; i++){
+	for (int i = 0; i < 3; i++){
 		std::string	inputFile = testDir + inputFiles[i];
 		std::string	expectedFile = testDir + "expected/" + expectedOutput[i];
 		std::string outputFile = inputFile + ".replace";
