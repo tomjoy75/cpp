@@ -6,7 +6,7 @@
 #    By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/09/05 17:42:22 by tjoyeux          ###   ########.fr        #
+#    Updated: 2024/09/06 11:28:22 by tjoyeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ cleantest :
 	@echo "$(MAGENTA)$(BOLD)Cleaning Test: $(RESET)$(BLUE)$(ITALIC)$(OBJ)$(RESET)"
 	$(RM) $(TEST_OBJ_P)*.o
 	$(RM) -r $(TEST_OBJ_P)
+	$(RM) $(TEST_SRC_P)test_cases/*.replace
 
 fclean : clean cleantest
 	@echo "$(MAGENTA)$(BOLD)Cleaning Working Directory: $(RESET)$(BLUE)$(ITALIC)$(OBJ)$(RESET)"
