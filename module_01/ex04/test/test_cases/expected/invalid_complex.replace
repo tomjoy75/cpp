@@ -1,0 +1,11 @@
+bar est au début de cette ligne.
+Cette ligne contient bar au milieu de la phrase.
+barbar est un mot avec deux occurrences collées.
+Que se passe-t-il avec bar. suivi d'un point ?
+Et bar suivi d'une virgule, bar, encore une fois.
+Une ligne sans bar pour être sûr que rien ne change ici.
+Parfois, foo est en majuscules : FOO. Il ne doit pas être transformé.
+bar est là encore en fin de ligne bar
+barbarqux contient bar suivi de "bar", et ne devrait remplacer que "bar".
+Et bar est là aussi, avec d'autres bar à tester.
+Testons bar\n avec un retour à la ligne bar

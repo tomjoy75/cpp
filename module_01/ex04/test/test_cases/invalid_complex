@@ -1,0 +1,11 @@
+foo est au début de cette ligne.
+Cette ligne contient foo au milieu de la phrase.
+foofoo est un mot avec deux occurrences collées.
+Que se passe-t-il avec foo. suivi d'un point ?
+Et foo suivi d'une virgule, foo, encore une fois.
+Une ligne sans foo pour être sûr que rien ne change ici.
+Parfois, foo est en majuscules : FOO. Il ne doit pas être transformé.
+foo est là encore en fin de ligne foo
+foobarqux contient foo suivi de "bar", et ne devrait remplacer que "foo".
+Et foo est là aussi, avec d'autres foo à tester.
+Testons foo\n avec un retour à la ligne foo
