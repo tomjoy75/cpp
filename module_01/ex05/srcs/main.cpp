@@ -6,7 +6,7 @@
 /*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:28:56 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/08 22:56:59 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/09 00:04:12 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	main(void){
 
 //	f = &Harl::debug;
 //	(instance.*f)();
-	instance.complain("debug");
-	instance.complain("info");
-	instance.complain("warning");
-	instance.complain("error");
-	instance.complain("error_double");
+	instance.complain("DEBUG");
+	instance.complain("INFO");
+	instance.complain("WARNING");
+	instance.complain("ERROR");
+	instance.complain("ERROR_DOUBLE");
 	
 
 	return (0);
