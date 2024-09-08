@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:28:56 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/06 13:49:47 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/08 22:56:59 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	main(void){
 //	f = &Harl::debug;
 //	(instance.*f)();
 	instance.complain("debug");
+	instance.complain("info");
+	instance.complain("warning");
+	instance.complain("error");
+	instance.complain("error_double");
+	
 
 	return (0);
 }

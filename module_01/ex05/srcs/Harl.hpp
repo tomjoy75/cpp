@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:37:07 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/06 17:19:01 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/08 22:53:32 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <string>
 
-# define NB_FUNC 2
+# define NB_FUNC 4
 
 class	Harl;
 
@@ -33,7 +33,7 @@ private:
 	void	warning( void );
 	void	error( void );
 
-	static	t_func	_funcTab[NB_FUNC];
+	static	t_func	_funcTab[4];
 
 public:
 	Harl( void );
