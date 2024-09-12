@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:55:09 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/12 10:12:05 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/12 16:59:39 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,25 @@
 #include "Fixed.hpp"
 
 int main( void ) {
-
+	
 	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	a = Fixed( 1234.4321f );
+	std::cout << a << std::endl;
+/*	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+*/
+	std::cout << b << std::endl;
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+//	std::cout << Fixed::max( a, b ) << std::endl;
+//
+// EN PLUS
+	if (b != a)
+		std::cout << "GOOD!" << std::endl;
+	else
+		std::cout << "BAD!" << std::endl;
 
 	return 0;
 }

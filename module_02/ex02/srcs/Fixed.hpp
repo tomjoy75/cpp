@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:45:33 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/11 15:46:04 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/12 17:01:55 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,23 @@ public:
 	Fixed( Fixed const &src );
 	~Fixed( void );
 
+//operators overload
+	
 	Fixed	&operator=( Fixed const &rhs );
-
+	// Comparison operators
+	bool	operator>( Fixed const &rhs ) const;
+	bool	operator<( Fixed const &rhs ) const;
+	bool	operator>=( Fixed const &rhs ) const;
+	bool	operator<=( Fixed const &rhs ) const;
+	bool	operator==( Fixed const &rhs ) const;
+	bool	operator!=( Fixed const &rhs ) const;
+	// Arithmetic operators
+	Fixed	operator+( Fixed const &rhs ) const;
+	Fixed	operator-( Fixed const &rhs ) const;
+	Fixed	operator*( Fixed const &rhs ) const;
+	Fixed	operator/( Fixed const &rhs ) const;
+	// Increment operators
+	
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 	float	toFloat( void ) const;

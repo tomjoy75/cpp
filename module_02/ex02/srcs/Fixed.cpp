@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:50:11 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/12 10:19:17 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/12 17:17:34 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ Fixed::~Fixed( void ){
 	return ;			
 }
 
+// Operator overload
+
 Fixed	&Fixed::operator=( Fixed const  & rhs ){
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_nb = rhs.getRawBits();
@@ -48,6 +50,50 @@ std::ostream	&operator<<(std::ostream &o, Fixed const &rhs){
 	o << rhs.toFloat();//TODO: Appel de toFloat
 	return (o);
 }
+
+	// Comparison operators
+bool	Fixed::operator>( Fixed const &rhs ) const{
+	return (this->getRawBits() > rhs.getRawBits());
+}
+
+bool	Fixed::operator<( Fixed const &rhs ) const{
+	return (this->getRawBits() < rhs.getRawBits());
+}
+
+bool	Fixed::operator>=( Fixed const &rhs ) const{
+	return (this->getRawBits() >= rhs.getRawBits());
+}
+
+bool	Fixed::operator<=( Fixed const &rhs ) const{
+	return (this->getRawBits() <= rhs.getRawBits());
+}
+
+bool	Fixed::operator==( Fixed const &rhs ) const{
+	return (this->getRawBits() == rhs.getRawBits());
+}
+
+bool	Fixed::operator!=( Fixed const &rhs ) const{
+	return (this->getRawBits() != rhs.getRawBits());
+}
+
+	// Arithmetic operators
+Fixed	Fixed::operator+( Fixed const &rhs ) const{
+	return (Fixed(this->toFloat() + rhs.toFloat()));
+}
+
+Fixed	Fixed::operator-( Fixed const &rhs ) const{
+	return (Fixed(this->toFloat() - rhs.toFloat()));
+}
+
+Fixed	Fixed::operator*( Fixed const &rhs ) const{
+	return (Fixed(this->toFloat() * rhs.toFloat()));
+}
+
+Fixed	Fixed::operator/( Fixed const &rhs ) const{
+	return (Fixed(this->toFloat() / rhs.toFloat()));
+}
+
+	// Increment operators
 
 int	Fixed::getRawBits( void ) const{
 //	std::cout << "getRawBits member function called" << std::endl;
