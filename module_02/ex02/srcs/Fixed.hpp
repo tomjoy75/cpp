@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:45:33 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/12 17:01:55 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/13 15:02:32 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 # include <iostream>
 # include <cmath>
+
+# define BITS 8
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define BLUE "\033[0;34m"
+# define MAGENTA "\033[0;35m"
+# define RESET "\033[0m"
+# define BOLD "\033[1m"
+# define ITALIC "\033[3m"
+# define BLINK "\e[5m"
 
 class	Fixed{
 
@@ -41,7 +51,11 @@ public:
 	Fixed	operator*( Fixed const &rhs ) const;
 	Fixed	operator/( Fixed const &rhs ) const;
 	// Increment operators
-	
+	Fixed	&operator++( void );
+	Fixed	operator++( int );
+	Fixed	&operator--( void );
+	Fixed	operator--( int );
+
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 	float	toFloat( void ) const;
