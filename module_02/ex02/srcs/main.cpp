@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:55:09 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/13 16:03:32 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/13 17:08:18 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int main( void ) {
 
 	std::cout << b << std::endl;
 
-//	std::cout << Fixed::max( a, b ) << std::endl;
-//
+	std::cout << Fixed::max( a, b ) << std::endl;
+
 // EN PLUS
 	
 	a.setRawBits(4242);
@@ -75,5 +75,10 @@ int main( void ) {
 	compare("-- (prefix)", (--a).getRawBits(), aCopy.getRawBits() + 1); 
 	compare("-- (postfix)", (a--).getRawBits(), aCopy.getRawBits() + 1); 
 	compare(" after postfix", a.getRawBits(), aCopy.getRawBits()); 
+	std::cout << GREEN << ITALIC << "\tMIN/MAX FUNCTIONS" << RESET << std::endl;
+	compare("min", (Fixed::min(a, b)).getRawBits(), b.getRawBits());
+	compare("min (const)", (Fixed::min((Fixed const)a, (Fixed const)b)).getRawBits(), b.getRawBits());
+	compare("max", (Fixed::max(a, b)).getRawBits(), a.getRawBits());
+	compare("max (const)", (Fixed::max((Fixed const)a, (Fixed const)b)).getRawBits(), a.getRawBits());
 	return 0;
 }

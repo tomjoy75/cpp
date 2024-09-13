@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:50:11 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/13 15:02:59 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/13 16:52:12 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ Fixed	Fixed::operator--( int ){
 	return (old);
 }
 
+// Functions
 
 int	Fixed::getRawBits( void ) const{
 //	std::cout << "getRawBits member function called" << std::endl;
@@ -127,7 +128,7 @@ int	Fixed::getRawBits( void ) const{
 }
 
 void	Fixed::setRawBits( int const raw ){
-	std::cout << "setRawBits member function called" << std::endl;
+//	std::cout << "setRawBits member function called" << std::endl;
 	this->_nb = raw;
 	return ;
 }
@@ -140,6 +141,34 @@ float	Fixed::toFloat( void ) const{
 int		Fixed::toInt( void ) const{
 	int	i = this->_nb / (1 << Fixed::_nbBits);
 	return (i);
+}
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b){ 
+	if ( a.getRawBits() < b.getRawBits())
+		return (a);
+	else
+		return (b);
+}
+
+Fixed	Fixed::min(Fixed const &a, Fixed const &b){ 
+	if ( a.getRawBits() < b.getRawBits())
+		return (Fixed(a));
+	else
+		return (Fixed(b));	
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b){ 
+	if ( a.getRawBits() > b.getRawBits())
+		return (a);
+	else
+		return (b);
+}
+
+Fixed	Fixed::max(Fixed const &a, Fixed const &b){ 
+	if ( a.getRawBits() > b.getRawBits())
+		return (Fixed(a));
+	else
+		return (Fixed(b));	
 }
 
 int const	Fixed::_nbBits = BITS;
