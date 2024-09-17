@@ -6,12 +6,13 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:55:09 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/16 10:59:21 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/17 16:31:13 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
+#include "Point.hpp"
 
 void	compare(std::string const &operation, bool const result, bool const expected){
 	std::cout << "\tFOR \"" << operation << "\" : " << result << " ----- ";
@@ -28,7 +29,7 @@ void	compare(std::string const &operation, int const result, int const expected)
 	else
 		std::cout << RED << ITALIC << "BAD!" << RESET << std::endl;
 }
-
+/*
 int main( void ) {
 	
 	std::cout << BLUE << BOLD << "-----INITIAL TEST-----" << RESET << std::endl;
@@ -80,9 +81,28 @@ int main( void ) {
 	compare("min (const)", (Fixed::min((Fixed const)a, (Fixed const)b)).getRawBits(), b.getRawBits());
 	compare("max", (Fixed::max(a, b)).getRawBits(), a.getRawBits());
 	compare("max (const)", (Fixed::max((Fixed const)a, (Fixed const)b)).getRawBits(), a.getRawBits());
-/*	std::cout << GREEN << ITALIC << "\tINT_MAX AND FLOAT_MAX" << RESET << std::endl;
-	Fixed	c(8388608);
-	std::cout << "left and right objects with floating static value : " << c.getRawBits() << " and " << b.getRawBits() << std::endl;
-	compare(">", c > b, c.getRawBits() > b.getRawBits());*/
 	return 0;
+}*/
+int	main (void){
+
+	Point	a(0, 0);
+	Point	b(4, 0);
+	Point	c(2, 3);
+	Point	pInt(2, 1), pExt(5, 1), pEdge(2, 0);
+
+//	std::cout << "Resultat de l'aire : " << testArea( a, b, c ).toFloat() << std::endl;
+	if (bsp(a, b, c, pInt))
+		std::cout << "Point is in triangle" << std::endl;
+	else
+		std::cout << "Point is not in triangle" << std::endl;
+	if (bsp(a, b, c, pExt))
+		std::cout << "Point is in triangle" << std::endl;
+	else
+		std::cout << "Point is not in triangle" << std::endl;
+	if (bsp(a, b, c, pEdge))
+		std::cout << "Point is in triangle" << std::endl;
+	else
+		std::cout << "Point is not in triangle" << std::endl;
 }
+	
+	

@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 11:04:01 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/16 14:56:16 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/17 17:14:28 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,13 @@ public:
 
 	Fixed	getX( void ) const;
 	Fixed	getY( void ) const;
+	float	getXf( void ) const;
+	float	getYf( void ) const;
 private:
 	Fixed const	_x;
 	Fixed const	_y;
 };
 
+//Fixed	testArea( Point const &a, Point const &b, Point const &c);
+bool	bsp( Point const a, Point const b, Point const c, Point const point );
 #endif
