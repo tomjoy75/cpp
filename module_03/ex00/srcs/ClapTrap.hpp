@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 11:31:06 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/19 15:18:46 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/19 22:09:48 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,24 @@
 
 # include <iostream>
 # include <string>
+#include <limits>
+
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define BLUE "\033[0;34m"
+# define MAGENTA "\033[0;35m"
+# define RESET "\033[0m"
+# define BOLD "\033[1m"
+# define ITALIC "\033[3m"
+# define BLINK "\e[5m"
 
 class	ClapTrap{
 
 private:
 	std::string	_name;
-	int			_hp;
-	int			_energy;
-	int			_damage;
+	unsigned int	_hp;
+	unsigned int	_energy;
+	unsigned int	_damage;
 
 public:
 	ClapTrap( void );
