@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 11:04:01 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/17 17:14:28 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/18 10:01:19 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ public:
 
 	Point &operator=( Point const &rhs );
 
-	Fixed	getX( void ) const;
-	Fixed	getY( void ) const;
+	Fixed const	&getX( void ) const;
+	Fixed const	&getY( void ) const;
 	float	getXf( void ) const;
 	float	getYf( void ) const;
 private:

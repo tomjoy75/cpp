@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:50:11 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/16 10:58:27 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/18 12:10:22 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ Fixed	Fixed::operator-( Fixed const &rhs ) const{
 }
 
 Fixed	Fixed::operator*( Fixed const &rhs ) const{
-//	std::cout << "TEST : OPERATOR *, this->getRawBits " << this->getRawBits() << ", rhs.getRawBits() " << rhs.getRawBits() << " = " << this->getRawBits() * rhs.getRawBits() << std::endl;
-//	std::cout << "TEST : this->toFloat " << this->toFloat() << ", rhs.toFloat() " << rhs.toFloat() << " = " << this->toFloat() * rhs.toFloat() << std::endl;
 	return (Fixed(this->toFloat() * rhs.toFloat()));
 }
 

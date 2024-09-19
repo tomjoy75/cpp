@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 11:09:22 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/17 17:14:44 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/18 12:11:34 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Point::Point( void ): _x(Fixed()), _y(Fixed()){
+Point::Point( void ): _x(0), _y(0){
 //	std::cout << "Default constructor called" << std::endl;
 }
 
-Point::Point( float const x, float const y): _x(Fixed(x)), _y(Fixed(y)){
+Point::Point( float const x, float const y): _x(x), _y(y){
 //	std::cout << "Float constructor called" << std::endl;
 }
 
-Point::Point( Point const &src ){
+Point::Point( Point const &src ): _x(src.getX()), _y(src.getY()){
 //	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
 	return ;
 }
 
@@ -30,21 +29,16 @@ Point::~Point( void ){
 //	std::cout << "Destructor called" << std::endl;
 }
 
-Point &Point::operator=( Point const &rhs );/*{
+Point &Point::operator=( Point const &rhs ){
 	std::cout << "Affectation impossible, _x and _y are constant values" << std::endl;
-//	this->_x = rhs.getX();
-//	this->_y = rhs.getY();
-//	(void)rhs; // Not to use rhs
-	*this = Point(rhs.getXf(), rhs.getYf());
+	(void)rhs; // Not to use rhs
 	return (*this);
-//	Point	temp(rhs.getXf(), rhs.getYf());
-//	return (temp);
-}*/
+}
 
-Fixed	Point::getX( void ) const{
+Fixed const	&Point::getX( void ) const{
 	return (this->_x);
 }
-Fixed	Point::getY( void ) const{
+Fixed const	&Point::getY( void ) const{
 	return (this->_y);
 }
 
