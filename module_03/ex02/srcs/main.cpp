@@ -6,25 +6,25 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:16:37 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/20 14:02:41 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/20 15:05:56 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void){
 
-	ScavTrap	foo("foo");
-//	ScavTrap	bar;
+	FragTrap	foo("foo");
+//	FragTrap	bar;
 
 	// Test of attacks
 	std::cout << GREEN << BOLD << "\n----- Test : Attack with enough hit points and energy -----"<< RESET << std::endl; 
 	foo.attack("Marcel");
 	foo.attack("Boris");
 	
-	// Test of gate keeper
+/*	// Test of gate keeper
 	std::cout << GREEN << BOLD << "\n----- Test : Gate keeper mode -----"<< RESET << std::endl; 
-	foo.guardGate();
+	foo.guardGate();*/
 
 	// Test of damages
 	std::cout << GREEN << BOLD << "\n----- Test : Taking moderate damages -----"<< RESET << std::endl; 
@@ -44,7 +44,7 @@ int	main(void){
 
 	// Test with INT_MAX
 	std::cout << GREEN << BOLD << "\n----- Test : Repair with huge value to test limits -----"<< RESET << std::endl; 
-	ScavTrap	bar("bar");
+	FragTrap	bar("bar");
 	bar.takeDamage(5);
 	bar.beRepaired(std::numeric_limits<unsigned int>::max());
 

@@ -6,11 +6,11 @@
 #    By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/09/20 14:21:37 by tjoyeux          ###   ########.fr        #
+#    Updated: 2024/09/20 15:06:30 by tjoyeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= ScavTrap 
+NAME		= FragTrap 
 CC			= c++
 CFLAGS		= -Wall -Werror -Wextra -std=c++98 -g3
 RM			= rm -f
