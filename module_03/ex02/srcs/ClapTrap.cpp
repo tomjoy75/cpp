@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:46:29 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/20 11:26:57 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/20 14:05:27 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ ClapTrap	&ClapTrap::operator= ( ClapTrap const &rhs ){
 // Functions
 void	ClapTrap::attack( const std::string& target ){
 	if (this->_hp < 1){
-		std::cout << "Sorry, " << this->_name << " has no more hit points" << std::endl;
+		std::cout << "Sorry, " << this->_name << " can't attack, he has no more hit points" << std::endl;
 		return ;
 	}
 	if (this->_energy < 1){
-		std::cout << "Sorry, " << this->_name << " has no more energy" << std::endl;
+		std::cout << "Sorry, " << this->_name << " can't attack, he has no more energy" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_damage << " points of damage!" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_damage << " points of damage! ( "<< this->_energy << " points remaining)" << std::endl;
 	this->_energy--;
 }
 
@@ -66,22 +66,23 @@ void	ClapTrap::takeDamage( unsigned int amount ){
 		this->_hp = 0;
 	else
 		this->_hp -= amount;
-	std::cout << "ClapTrap " << this->_name << " gets " << amount << " of damages" << std::endl;
+	std::cout << this->_name << " gets " << amount << " of damages";
 	if (this->_hp == 0)
-		std::cout << "ClapTrap " << this->_name << " has no more hit points" << std::endl;
-
+		std::cout << " ... he has no more hit points" << std::endl;
+	else
+		std::cout << " ... he has " << this->_hp << " hit points remaining" << std::endl;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount ){
 	if (this->_hp < 1){
-		std::cout << "ClapTrap " << this->_name << " has no more hit points" << std::endl;
+		std::cout << this->_name << " can't be repaired, he has no more hit points" << std::endl;
 		return ;
 	}
 	if (this->_energy < 1){
-		std::cout << "Sorry, " << this->_name << " has no more energy" << std::endl;
+		std::cout << "Sorry, " << this->_name << " can't be repaired, he has no more energy" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_name << " gets " << amount << " hit points back" << std::endl;
+	std::cout << this->_name << " gets " << amount << " hit points back" << std::endl;
 	this->_energy--;
 	if (this->_hp > std::numeric_limits<unsigned int>::max() - amount){
 		this->_hp = std::numeric_limits<unsigned int>::max();

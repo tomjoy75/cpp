@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 11:31:06 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/20 11:27:07 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/20 11:38:15 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 class	ClapTrap{
 
-private:
+protected:
 	std::string	_name;
 	unsigned int	_hp;
 	unsigned int	_energy;
