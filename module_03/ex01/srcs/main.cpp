@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:16:37 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/20 14:02:41 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/21 19:24:10 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int	main(void){
 	// Test of recovery
 	std::cout << GREEN << BOLD << "\n----- Test : Repair with no hit points -----"<< RESET << std::endl; 
 	foo.beRepaired(5);
+	
+	// Test of gate keeper w no hp
+	std::cout << GREEN << BOLD << "\n----- Test : Gate keeper with no hp -----"<< RESET << std::endl; 
+	foo.guardGate();
+
 
 	// Test with INT_MAX
 	std::cout << GREEN << BOLD << "\n----- Test : Repair with huge value to test limits -----"<< RESET << std::endl; 
@@ -55,9 +60,10 @@ int	main(void){
 	}
 
 	// Test Attack and reparation w no energy
-	std::cout << GREEN << BOLD << "\n----- Test : Attack and reparation w no energy -----"<< RESET << std::endl; 
+	std::cout << GREEN << BOLD << "\n----- Test : Attack, reparation and guard gate w no energy -----"<< RESET << std::endl; 
 	bar.attack("Pikachu");
 	bar.beRepaired(10);
+	foo.guardGate();
 
 	std::cout << GREEN << BOLD << "\n----- End of Tests -----"<< RESET << std::endl; 
 

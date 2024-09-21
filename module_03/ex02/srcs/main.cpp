@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:16:37 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/20 15:05:56 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/21 19:15:38 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	main(void){
 	foo.attack("Marcel");
 	foo.attack("Boris");
 	
-/*	// Test of gate keeper
-	std::cout << GREEN << BOLD << "\n----- Test : Gate keeper mode -----"<< RESET << std::endl; 
-	foo.guardGate();*/
+	// Test of high fives
+	std::cout << GREEN << BOLD << "\n----- Test : High Fives mode -----"<< RESET << std::endl; 
+	foo.highFivesGuys();
 
 	// Test of damages
 	std::cout << GREEN << BOLD << "\n----- Test : Taking moderate damages -----"<< RESET << std::endl; 
@@ -42,6 +42,10 @@ int	main(void){
 	std::cout << GREEN << BOLD << "\n----- Test : Repair with no hit points -----"<< RESET << std::endl; 
 	foo.beRepaired(5);
 
+	// Test of high fives
+	std::cout << GREEN << BOLD << "\n----- Test : High Fives with no hit points -----"<< RESET << std::endl; 
+	foo.highFivesGuys();
+
 	// Test with INT_MAX
 	std::cout << GREEN << BOLD << "\n----- Test : Repair with huge value to test limits -----"<< RESET << std::endl; 
 	FragTrap	bar("bar");
@@ -50,14 +54,15 @@ int	main(void){
 
 	// Test of energy
 	std::cout << GREEN << BOLD << "\n----- Test : Reduce energy to 0 -----"<< RESET << std::endl; 
-	for (int i = 0; i < 50; i++){
+	for (int i = 0; i < 100; i++){
 		bar.attack("GrosBill");
 	}
 
 	// Test Attack and reparation w no energy
-	std::cout << GREEN << BOLD << "\n----- Test : Attack and reparation w no energy -----"<< RESET << std::endl; 
+	std::cout << GREEN << BOLD << "\n----- Test : Attack, reparation and high fives w no energy -----"<< RESET << std::endl; 
 	bar.attack("Pikachu");
 	bar.beRepaired(10);
+	bar.highFivesGuys();
 
 	std::cout << GREEN << BOLD << "\n----- End of Tests -----"<< RESET << std::endl; 
 

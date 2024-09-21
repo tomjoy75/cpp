@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:01:12 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/20 16:00:31 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/21 19:16:06 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ FragTrap::FragTrap(std::string const name): ClapTrap(name){
 	std::cout << "FragTrap " << this->_name << " has been created!" << std::endl;
 }
 
-FragTrap::FragTrap( FragTrap const &src ){
+FragTrap::FragTrap( FragTrap const &src ) : ClapTrap(src){
 	*this = src;
 	std::cout << "FragTrap " << this->_name << " has been copied! (copy constructor)" << std::endl;
 }
@@ -56,7 +56,7 @@ void	FragTrap::highFivesGuys( void ){
 		return ;
 	}
 	if (this->_energy < 1){
-		std::cout << "Sorry, " << this->_name << " can't be fives, he has no more energy" << std::endl;
+		std::cout << "Sorry, " << this->_name << " can't high fives, he has no more energy" << std::endl;
 		return ;
 	}
 	std::cout << this->_name << " gives you a high five 🙌 🙏" << std::endl;

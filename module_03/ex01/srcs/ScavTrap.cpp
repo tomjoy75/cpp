@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 11:39:39 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/20 14:12:45 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/21 19:21:28 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ScavTrap::ScavTrap(std::string const name): ClapTrap(name){
 	std::cout << "ScavTrap " << this->_name << " has been created!" << std::endl;
 }
 
-ScavTrap::ScavTrap( ScavTrap const &src ){
+ScavTrap::ScavTrap( ScavTrap const &src ): ClapTrap(src){
 	*this = src;
 	std::cout << "ScavTrap " << this->_name << " has been copied! (copy constructor)" << std::endl;
 }
@@ -64,5 +64,14 @@ void	ScavTrap::attack( std::string const &target ){
 }
 
 void	ScavTrap::guardGate(){
+	if (this->_hp < 1){
+		std::cout << "Sorry, ScavTrap " << this->_name << " can't guard, he has no more hit points" << std::endl;
+		return ;
+	}
+	if (this->_energy < 1){
+		std::cout << "Sorry, ScavTrap " << this->_name << " can't guard, he has no more energy" << std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << this->_name << " is in Gate keeper mode" << std::endl;
+	this->_energy--;
 }
