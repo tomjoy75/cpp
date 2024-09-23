@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:42:48 by joyeux            #+#    #+#             */
-/*   Updated: 2024/09/21 21:14:27 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/23 12:01:53 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap {
+class DiamondTrap : public ScavTrap, virtual public FragTrap {
 
 public:
 	DiamondTrap( void );
@@ -26,6 +26,7 @@ public:
 
 	DiamondTrap	&operator=( DiamondTrap const &rhs );
 
+	void	whoAmI( void );
 private:
 	std::string	_name;
 };

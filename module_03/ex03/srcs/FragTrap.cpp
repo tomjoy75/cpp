@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:01:12 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/21 19:16:06 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/23 10:34:10 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,4 @@ void	FragTrap::highFivesGuys( void ){
 	}
 	std::cout << this->_name << " gives you a high five 🙌 🙏" << std::endl;
 	this->_energy--;
-
 }

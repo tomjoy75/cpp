@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:51:09 by joyeux            #+#    #+#             */
-/*   Updated: 2024/09/22 18:21:02 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/23 12:17:46 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 // Constructors
-DiamondTrap::DiamondTrap( void ): ClapTrap("nobody_clap_name"), ScavTrap(), FragTrap(){
+DiamondTrap::DiamondTrap( void ): ClapTrap("nobody_clap_name"), FragTrap(), ScavTrap(){
 	this->_hp = FragTrap::_hp;
 	this->_energy = ScavTrap::_energy;
 	this->_damage = FragTrap::_damage;
@@ -22,7 +22,7 @@ DiamondTrap::DiamondTrap( void ): ClapTrap("nobody_clap_name"), ScavTrap(), Frag
 	std::cout << "Hp : " << this->_hp << ", Energy : " << this ->_energy << ", Damage : " << this ->_damage << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string const name): ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(){
+DiamondTrap::DiamondTrap(std::string const name): ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap(){
 	this->_hp = FragTrap::_hp;
 	this->_energy = ScavTrap::_energy;
 	this->_damage = FragTrap::_damage;
@@ -31,7 +31,7 @@ DiamondTrap::DiamondTrap(std::string const name): ClapTrap(name + "_clap_name"),
 	std::cout << "Hp : " << this->_hp << ", Energy : " << this ->_energy << ", Damage : " << this ->_damage << std::endl;
 }
 
-DiamondTrap::DiamondTrap( DiamondTrap const &src ) : ClapTrap(src), ScavTrap(src), FragTrap(src){
+DiamondTrap::DiamondTrap( DiamondTrap const &src ) : ClapTrap(src), FragTrap(src), ScavTrap(src){
 	*this = src;
 	std::cout << "DiamondTrap " << this->_name << " has been copied! (copy constructor)" << std::endl;
 }
@@ -51,4 +51,18 @@ DiamondTrap	&DiamondTrap::operator= ( DiamondTrap const &rhs ){
 		std::cout << "DiamondTrap " << this->_name << " has been copied! (operator overload =)" << std::endl;
 	}
 	return (*this);
+}
+
+// Functions
+void	DiamondTrap::whoAmI( void ){
+	if (this->_hp < 1){
+		std::cout << this->_name << " can't say his name, he has no more hit points" << std::endl;
+		return ;
+	}
+	if (this->_energy < 1){
+		std::cout << "Sorry, " << this->_name << " can't say his name, he has no more energy" << std::endl;
+		return ;
+	}
+	std::cout << "my name is " << this->_name << "\nmy ClapTrap name is " << ClapTrap::_name << std::endl;
+	this->_energy--;
 }

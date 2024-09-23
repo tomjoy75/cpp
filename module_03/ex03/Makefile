@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+         #
+#    By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/09/21 19:33:06 by joyeux           ###   ########.fr        #
+#    Updated: 2024/09/23 12:07:56 by tjoyeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= DiamondTrap 
 CC			= c++
-CFLAGS		= -Wall -Werror -Wextra -std=c++98 -g3
+CFLAGS		= -Wall -Werror -Wextra -std=c++98 -g3 #-Wshadow
 RM			= rm -f
 
 SRC_PATH	= ./srcs/
@@ -23,7 +23,7 @@ OBJS		= $(addprefix $(OBJ_PATH),$(notdir $(SRCS:.cpp=.o)))
 	
 FLAG_FILE	:= .build_started
 
-#__________________________________Canon_____________________________________
+#__________________________________Trap_____________________________________
 
 all	: $(NAME)
 
