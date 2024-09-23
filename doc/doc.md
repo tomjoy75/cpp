@@ -10,3 +10,7 @@
 
 [operator overloading](https://en.cppreference.com/w/cpp/language/operators) \
 [Surcharge d'opérateurs d'incrémentation et de décrémentation](https://learn.microsoft.com/fr-fr/cpp/cpp/increment-and-decrement-operator-overloading-cpp?view=msvc-170) \
+
+## VIRTUAL INHERITANCE
+
+[virtual inheritance and others](https://isocpp.org/wiki/faq/multiple-inheritance#virtual-inheritance-where)
