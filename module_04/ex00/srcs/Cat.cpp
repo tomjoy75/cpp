@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:18:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 11:51:27 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/24 11:51:43 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog( void ):Animal(){
-	this->_type = "Dog";
-	std::cout << "Dog : " << this->_type << " has been created!" << std::endl;
+Cat::Cat( void ):Animal(){
+	this->_type = "Cat";
+	std::cout << "Cat : " << this->_type << " has been created!" << std::endl;
 }
 
-Dog::Dog( Dog const &src): Animal(src){
+Cat::Cat( Cat const &src): Animal(src){
 	this->_type = src._type;
-	std::cout << "Dog : " << this->_type << " has been copied! (copy constructor)" << std::endl;
+	std::cout << "Cat : " << this->_type << " has been copied! (copy constructor)" << std::endl;
 }
 
-Dog::~Dog( void ){
-	std::cout << "Dog : " << this->_type << " has been destroyed!" << std::endl;
+Cat::~Cat( void ){
+	std::cout << "Cat : " << this->_type << " has been destroyed!" << std::endl;
 }
 
-Dog	&Dog::operator=(Dog const &rhs){
+Cat	&Cat::operator=(Cat const &rhs){
 	if (this != &rhs)
 		*this = rhs;//TODO: Voir si ca marche...sinon copier _type
-	std::cout << "Dog : " << this->_type << " has been copied! (operator overload =)" << std::endl;
+	std::cout << "Cat : " << this->_type << " has been copied! (operator overload =)" << std::endl;
 	return (*this);
 }
 
-void	Dog::makeSound( void ) const{
-	std::cout << GREEN << ITALIC << "OUAF!" << RESET << std::endl;
+void	Cat::makeSound( void ) const{
+	std::cout << GREEN << ITALIC << "MIAOOOOU!" << RESET << std::endl;
 }
