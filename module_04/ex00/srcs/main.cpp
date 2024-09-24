@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:27:12 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 12:05:25 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:28:35 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int	main(void){
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
+/*	std::cout << BLUE << ITALIC << "\tcheck of copy constructor" << RESET << std::endl;
+	Animal	*k = new Cat(i);
+	delete (k);*/ //TODO: Faire une check du copy constructor
 	std::cout << BLUE << ITALIC << "\tdestroy animal, cat and then dog" << RESET << std::endl;
 	delete(meta);
 	delete(i);
