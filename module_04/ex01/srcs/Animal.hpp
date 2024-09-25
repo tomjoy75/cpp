@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:59:38 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/23 17:29:07 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/25 13:51:35 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include "Brain.hpp"
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"

@@ -6,46 +6,56 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:27:12 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 12:05:25 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/25 23:15:44 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 
 int	main(void){
+
 	std::cout << BLUE << BOLD << "-----INITIAL TEST-----" << RESET << std::endl;
-	// Constructors
-	std::cout << BLUE << ITALIC << "\tconstructor animal" << RESET << std::endl;
-	const Animal	*meta = new Animal();
-	std::cout << BLUE << ITALIC << "\tconstructor dog" << RESET << std::endl;
-	const Animal	*j = new Dog();
-	std::cout << BLUE << ITALIC << "\tconstructor cat" << RESET << std::endl;
-	const Animal	*i = new Cat();
 
-	std::cout << BLUE << ITALIC << "\tget type of dog and cat" << RESET << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << BLUE << ITALIC << "\tmake sound of cat, dog and animal" << RESET << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	std::cout << BLUE << ITALIC << "\tdestroy animal, cat and then dog" << RESET << std::endl;
-	delete(meta);
-	delete(i);
-	delete(j);
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+
+	delete j;//should not create a leak
+	delete i;
+
 	std::cout << std::endl << BLUE << BOLD << "-----MORE TEST-----" << RESET << std::endl;
-	std::cout << BLUE << ITALIC << "\tconstructor wrong animal and wrong cat" << RESET << std::endl;
-	const WrongAnimal	*meta2 = new WrongAnimal();
-	const WrongAnimal	*i2 = new WrongCat();
+	std::cout << std::endl << GREEN << ITALIC << "Constructor of Array of Animals" << RESET << std::endl;
 
-	std::cout << BLUE << ITALIC << "\tget type of wrong cat" << RESET << std::endl;
-	std::cout << i2->getType() << " " << std::endl;
-	std::cout << BLUE << ITALIC << "\tmake sound of wrong cat and wrong animal" << RESET << std::endl;
-	i2->makeSound(); //will output the wrong cat sound!
-	meta2->makeSound();
-	std::cout << BLUE << ITALIC << "\tdestroy wrong animal and then wrong cat" << RESET << std::endl;
-	delete(meta2);
-	delete(i2);
+	Animal	*tab[6];
+
+	for (int i = 0; i < 6; i++){
+		std::cout << GREEN << BOLD << i << "." << RESET;
+		if ( i % 2 )
+			tab[i] = new Dog;
+		else	
+			tab[i] = new Cat;
+	}
+	std::cout << std::endl << GREEN << ITALIC << "Test of deep copy in copy constructor" << RESET << std::endl;
+	std::cout << std::endl << GREEN << ITALIC << "\tDog" << RESET << std::endl;
+	Dog	originalD;
+	Dog	copyD(originalD);
+	copyD = originalD;
+	
+	std::cout << std::endl << GREEN << ITALIC << "\tCat" << RESET << std::endl;
+	Cat	originalC;
+	Cat	copyC(originalC);
+	copyC = originalC;
+	
+	std::cout << std::endl << GREEN << ITALIC << "Test of operator overload w same value" << RESET << std::endl;
+	copyD = copyD;
+	copyC = copyC;
+
+	std::cout << std::endl << GREEN << ITALIC << "Destructor of Array of Animals" << RESET << std::endl;
+	for (int i = 0; i < 6; i++){
+		std::cout << GREEN << BOLD << i << "." << RESET;
+		delete tab[i];
+	}
+	std::cout << std::endl << BLUE << BOLD << "-----PROGRAM FINISHED-----" << RESET << std::endl;
+
+	return (0);
 }

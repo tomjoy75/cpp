@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:59:38 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 09:53:22 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/25 13:45:11 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ public:
 	Cat	&operator=(Cat const &rhs);
 
 	virtual void	makeSound( void ) const;
+
+private:
+	Brain	*_brain;
+
 };
 
 #endif
