@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:18:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 11:52:05 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/25 11:38:47 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ WrongAnimal::WrongAnimal( void ):_type(" no Type "){
 	std::cout << "WrongAnimal : " << this->_type << " has been created!" << std::endl;
 }
 
-WrongAnimal::WrongAnimal( WrongAnimal const &src){
-	this->_type = src._type;
+WrongAnimal::WrongAnimal( WrongAnimal const &src):_type(src._type){
+//	this->_type = src._type;
 	std::cout << "WrongAnimal : " << this->_type << " has been copied! (copy constructor)" << std::endl;
 }
 
@@ -27,7 +27,7 @@ WrongAnimal::~WrongAnimal( void ){
 
 WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &rhs){
 	if (this != &rhs)
-		*this = rhs;//TODO: Voir si ca marche...sinon copier _type
+		this->_type = rhs._type;
 	std::cout << "WrongAnimal : " << this->_type << " has been copied! (operator overload =)" << std::endl;
 	return (*this);
 }

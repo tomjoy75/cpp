@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:18:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 11:52:32 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/25 11:39:31 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ WrongCat::WrongCat( void ):WrongAnimal(){
 }
 
 WrongCat::WrongCat( WrongCat const &src): WrongAnimal(src){
-	this->_type = src._type;
+//	this->_type = src._type;
 	std::cout << "WrongCat : " << this->_type << " has been copied! (copy constructor)" << std::endl;
 }
 
@@ -28,7 +28,7 @@ WrongCat::~WrongCat( void ){
 
 WrongCat	&WrongCat::operator=(WrongCat const &rhs){
 	if (this != &rhs)
-		*this = rhs;//TODO: Voir si ca marche...sinon copier _type
+		this->_type = rhs._type;
 	std::cout << "WrongCat : " << this->_type << " has been copied! (operator overload =)" << std::endl;
 	return (*this);
 }

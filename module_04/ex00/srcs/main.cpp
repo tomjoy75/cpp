@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:27:12 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 15:28:35 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/25 11:05:36joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ int	main(void){
 /*	std::cout << BLUE << ITALIC << "\tcheck of copy constructor" << RESET << std::endl;
 	Animal	*k = new Cat(i);
 	delete (k);*/ //TODO: Faire une check du copy constructor
-	std::cout << BLUE << ITALIC << "\tdestroy animal, cat and then dog" << RESET << std::endl;
+	std::cout << BLUE << ITALIC << "\tcopy constructor of cat" << RESET << std::endl;
+	const Animal	*i_copy = new Cat(*(dynamic_cast<const Cat*>(i)));
+	std::cout << BLUE << ITALIC << "\tdestroy animal, cat, copy of cat and then dog" << RESET << std::endl;
 	delete(meta);
 	delete(i);
+	delete(i_copy);
 	delete(j);
 	std::cout << std::endl << BLUE << BOLD << "-----MORE TEST-----" << RESET << std::endl;
 	std::cout << BLUE << ITALIC << "\tconstructor wrong animal and wrong cat" << RESET << std::endl;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:18:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 11:51:27 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/25 11:36:55 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog( void ):Animal(){
 }
 
 Dog::Dog( Dog const &src): Animal(src){
-	this->_type = src._type;
+//	this->_type = src._type;
 	std::cout << "Dog : " << this->_type << " has been copied! (copy constructor)" << std::endl;
 }
 
@@ -28,7 +28,7 @@ Dog::~Dog( void ){
 
 Dog	&Dog::operator=(Dog const &rhs){
 	if (this != &rhs)
-		*this = rhs;//TODO: Voir si ca marche...sinon copier _type
+		this->_type = rhs._type;
 	std::cout << "Dog : " << this->_type << " has been copied! (operator overload =)" << std::endl;
 	return (*this);
 }

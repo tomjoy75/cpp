@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:18:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 11:51:43 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/25 10:55:41 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat( void ):Animal(){
 }
 
 Cat::Cat( Cat const &src): Animal(src){
-	this->_type = src._type;
+//	this->_type = src._type;
 	std::cout << "Cat : " << this->_type << " has been copied! (copy constructor)" << std::endl;
 }
 
@@ -28,7 +28,7 @@ Cat::~Cat( void ){
 
 Cat	&Cat::operator=(Cat const &rhs){
 	if (this != &rhs)
-		*this = rhs;//TODO: Voir si ca marche...sinon copier _type
+		this->_type = rhs._type;
 	std::cout << "Cat : " << this->_type << " has been copied! (operator overload =)" << std::endl;
 	return (*this);
 }

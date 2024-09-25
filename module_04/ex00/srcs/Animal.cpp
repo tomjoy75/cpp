@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:18:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/24 15:22:02 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/25 10:45:22 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Animal::~Animal( void ){
 
 Animal	&Animal::operator=(Animal const &rhs){
 	if (this != &rhs)
-		this->_type = rhs._type;//TODO: Voir si ca marche...sinon copier _type
+		this->_type = rhs._type;
 	std::cout << "Animal : " << this->_type << " has been copied! (operator overload =)" << std::endl;
 	return (*this);
 }
