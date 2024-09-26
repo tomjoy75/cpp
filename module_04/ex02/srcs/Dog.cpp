@@ -6,19 +6,19 @@
 /*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:18:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/25 23:06:59 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:10:04 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog( void ):Animal(){
+Dog::Dog( void ):AAnimal(){
 	this->_type = "Dog";
 	this->_brain = new Brain;
 	std::cout << "Dog : " << this->_type << " has been created!" << std::endl;
 }
 
-Dog::Dog( Dog const &src): Animal(src){
+Dog::Dog( Dog const &src): AAnimal(src){
 	this->_brain = new Brain(*src._brain);
 	std::cout << "Dog : " << this->_type << " has been copied! (copy constructor)" << std::endl;
 }

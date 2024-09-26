@@ -6,19 +6,19 @@
 /*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:18:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/25 23:07:09 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:09:02 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat( void ):Animal(){
+Cat::Cat( void ):AAnimal(){
 	this->_type = "Cat";
 	this->_brain = new Brain;
 	std::cout << "Cat : " << this->_type << " has been created!" << std::endl;
 }
 
-Cat::Cat( Cat const &src): Animal(src){
+Cat::Cat( Cat const &src): AAnimal(src){
 	this->_brain = new Brain(*src._brain);
 	std::cout << "Cat : " << this->_type << " has been copied! (copy constructor)" << std::endl;
 }

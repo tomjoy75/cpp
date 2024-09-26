@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:59:38 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/25 13:51:35 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:07:15 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@
 # define ITALIC "\033[3m"
 # define BLINK "\e[5m"
 
-class	Animal{
+class	AAnimal{
 protected:
 	std::string	_type;
 
 public:
-	Animal( void );
-	Animal( Animal const &src);
-	virtual ~Animal( void );
+	AAnimal( void );
+	AAnimal( AAnimal const &src);
+	virtual ~AAnimal( void );
 
-	Animal	&operator=(Animal const &rhs);
+	AAnimal	&operator=(AAnimal const &rhs);
 
-	virtual void		makeSound( void ) const;
+	virtual void		makeSound( void ) const = 0;
 	std::string const	&getType( void ) const;
 };
 

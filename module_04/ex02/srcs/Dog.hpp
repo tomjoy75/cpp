@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:59:38 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/25 13:47:30 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:10:14 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "Animal.hpp"
 
-class	Dog: public Animal{
+class	Dog: public AAnimal{
 
 public:
 	Dog( void );

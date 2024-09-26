@@ -14,3 +14,7 @@
 ## VIRTUAL INHERITANCE
 
 [virtual inheritance and others](https://isocpp.org/wiki/faq/multiple-inheritance#virtual-inheritance-where)
+
+## COMPILATION
+
+[Diagnostic flags in Clang](https://clang.llvm.org/docs/DiagnosticsReference.html)

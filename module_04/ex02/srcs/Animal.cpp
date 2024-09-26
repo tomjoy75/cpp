@@ -6,35 +6,35 @@
 /*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:18:00 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/25 11:42:54 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/26 11:08:09 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal( void ):_type(" no Type "){
-	std::cout << "Animal : " << this->_type << " has been created!" << std::endl;
+AAnimal::AAnimal( void ):_type(" no Type "){
+	std::cout << "AAnimal : " << this->_type << " has been created!" << std::endl;
 }
 
-Animal::Animal( Animal const &src):_type(src._type){
-	std::cout << "Animal : " << this->_type << " has been copied! (copy constructor)" << std::endl;
+AAnimal::AAnimal( AAnimal const &src):_type(src._type){
+	std::cout << "AAnimal : " << this->_type << " has been copied! (copy constructor)" << std::endl;
 }
 
-Animal::~Animal( void ){
-	std::cout << "Animal : " << this->_type << " has been destroyed!" << std::endl;
+AAnimal::~AAnimal( void ){
+	std::cout << "AAnimal : " << this->_type << " has been destroyed!" << std::endl;
 }
 
-Animal	&Animal::operator=(Animal const &rhs){
+AAnimal	&AAnimal::operator=(AAnimal const &rhs){
 	if (this != &rhs)
 		this->_type = rhs._type;
-	std::cout << "Animal : " << this->_type << " has been copied! (operator overload =)" << std::endl;
+	std::cout << "AAnimal : " << this->_type << " has been copied! (operator overload =)" << std::endl;
 	return (*this);
 }
 
-void	Animal::makeSound( void ) const{
+void	AAnimal::makeSound( void ) const{
 	std::cout << GREEN << ITALIC << "NO SOUND!" << RESET << std::endl;
 }
 
-std::string const	&Animal::getType( void ) const{
+std::string const	&AAnimal::getType( void ) const{
 	return (this->_type);
 }
