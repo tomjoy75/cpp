@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:27:12 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/26 11:11:26 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/09/26 17:00:56 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ int	main(void){
 	copyC = originalC;
 	
 	std::cout << std::endl << GREEN << ITALIC << "Test of operator overload w same value" << RESET << std::endl;
+	#pragma clang diagnostic push
+	#pragma clang diagnostic ignored "-Wself-assign-overloaded"
 	copyD = copyD;
 	copyC = copyC;
+	#pragma clang diagnostic pop
 
 	std::cout << std::endl << GREEN << ITALIC << "Destructor of Array of Animals" << RESET << std::endl;
 	for (int i = 0; i < 6; i++){
