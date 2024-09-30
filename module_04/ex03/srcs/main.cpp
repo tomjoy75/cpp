@@ -6,17 +6,18 @@
 /*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 00:14:02 by joyeux            #+#    #+#             */
-/*   Updated: 2024/09/28 00:16:58 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:27:27 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include //TODO Which depandencies
+#include "Ice.hpp"//TODO Which depandencies
+#include "MateriaSource.hpp"
 
 int	main(){
 	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-
+//	src->learnMateria(new Ice());
+//	src->learnMateria(new Cure());
+/*
 	ICharacter* me = new Character("me");
 
 	AMateria* tmp;
@@ -31,7 +32,7 @@ int	main(){
 	me->use(1, *bob);
 
 	delete bob;
-	delete me;
+	delete me;*/
 	delete src;
 
 	return 0;

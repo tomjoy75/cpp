@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Materia.hpp                                        :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 00:17:32 by joyeux            #+#    #+#             */
-/*   Updated: 2024/09/28 11:50:47 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/30 12:31:17 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIA_H
-# define MATERIA_H
+#ifndef AMATERIA_H
+# define AMATERIA_H
 
 # include <iostream>
 # include <string>
+# include "ICharacter.hpp" 
 
 class AMateria{
 protected:
 	std::string	_type;
-	[...]
+//	[...]
 public:
+	AMateria( void );
 	AMateria(std::string const & type);
-	[...]
+//	[...]
 
 	std::string const & getType() const; //Returns the materia type
 

@@ -6,13 +6,14 @@
 /*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:45:15 by joyeux            #+#    #+#             */
-/*   Updated: 2024/09/28 11:49:13 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/09/30 11:56:04 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice( void ): AMateria(), _type("ice"){
+Ice::Ice( void ): AMateria(){
+	this->_type = "ice";
 	std::cout << "Ice : " << this->_type << " has been created!" << std::endl;
 }
 
