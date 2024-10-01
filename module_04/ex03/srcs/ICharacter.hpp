@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:44:18 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/09/30 14:18:18 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/01 13:27:26 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define ICHARACTER_H
 
 //# include "AMateria.hpp" 
-# include "Ice.hpp"
+//# include "Ice.hpp"
+# include <iostream>
 
 class AMateria;
 class ICharacter{

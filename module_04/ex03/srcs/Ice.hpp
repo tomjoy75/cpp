@@ -6,7 +6,7 @@
 /*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:42:26 by joyeux            #+#    #+#             */
-/*   Updated: 2024/09/30 11:59:00 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/01 13:06:20 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "AMateria.hpp"
 
 class	Ice: public AMateria{
+
 public:
 	Ice( void );
 };
