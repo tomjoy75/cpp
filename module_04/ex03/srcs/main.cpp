@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 00:14:02 by joyeux            #+#    #+#             */
-/*   Updated: 2024/10/02 16:47:22 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/03 14:57:58 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,16 @@ int	main(){
 	Character	elsa("elsa");
 	ice_item.use(elsa);
 	cure_cpy.use(elsa);
+	std::cout << "Character is " << elsa.getName() << std::endl;
+	AMateria	*item1 = new Ice();
+	AMateria	*item2 = new Cure();
+	elsa.equip(item1);
+	elsa.equip(item2);
+	std::cout << std::endl << GREEN << ITALIC << "Test of deep copy in copy constructor" << RESET << std::endl;
+	Character	new_elsa(elsa);
+	// elsa.equip(item);
+	// elsa.equip(item);
+	// elsa.equip(item);
 
 	std::cout << std::endl << BLUE << BOLD << "-----PROGRAM FINISHED-----" << RESET << std::endl;
 	return 0;

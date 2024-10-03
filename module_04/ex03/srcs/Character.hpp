@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:23:40 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/02 15:10:48 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/03 14:55:56 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ private:
 public:
 	Character( void );
 	Character(std::string name );
-//	Character( Character const &src );
+	Character( Character const &src );
 	virtual ~Character( void );
 
 //	Character	&operator=( Character const &rhs );
 
 	virtual std::string	const & getName() const;
-/*	void		equip(AMateria *m);
-	void		unequip(int idx);
+	void		equip(AMateria *m);
+/*	void		unequip(int idx);
 	void		use(int idx, ICharacter &target);
 */
 };
