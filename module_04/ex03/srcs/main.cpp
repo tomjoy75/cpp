@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 00:14:02 by joyeux            #+#    #+#             */
-/*   Updated: 2024/10/03 14:57:58 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/04 00:17:28 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,19 @@ int	main(){
 	AMateria	*item2 = new Cure();
 	elsa.equip(item1);
 	elsa.equip(item2);
+	elsa.showItems();
 	std::cout << std::endl << GREEN << ITALIC << "Test of deep copy in copy constructor" << RESET << std::endl;
-	Character	new_elsa(elsa);
+	Character	elsa_copy(elsa);
+	elsa_copy.showItems();
+	std::cout << std::endl << GREEN << ITALIC << "Test of operator overload" << RESET << std::endl;
+	elsa_copy = elsa;
+	elsa_copy.showItems();
+	std::cout << std::endl << GREEN << ITALIC << "Test of operator overload w same value" << RESET << std::endl;
+	#pragma clang diagnostic push
+	#pragma clang diagnostic ignored "-Wself-assign-overloaded"
+	elsa_copy = elsa_copy;
+	#pragma clang diagnostic pop
+
 	// elsa.equip(item);
 	// elsa.equip(item);
 	// elsa.equip(item);

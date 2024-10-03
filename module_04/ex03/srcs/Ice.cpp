@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:45:15 by joyeux            #+#    #+#             */
-/*   Updated: 2024/10/02 16:36:17 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/03 21:51:00 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Ice	&Ice::operator=( Ice const &rhs ){
 }
 
 AMateria	*Ice::clone( void ) const{
-	AMateria	*tmp = new Ice();
+	AMateria	*tmp = new Ice(*this);
 	std::cout << "Ice : " << this->_type << " has been cloned!(dynamic allocation)" << std::endl;
 	return (tmp);	
 }

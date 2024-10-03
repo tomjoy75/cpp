@@ -6,13 +6,13 @@
 #    By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/09/28 00:13:31 by joyeux           ###   ########.fr        #
+#    Updated: 2024/10/04 00:11:17 by joyeux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Materia 
 CC			= c++
-CFLAGS		= -Wall -Werror -Wextra -std=c++98 -g3 #-Wshadow
+CFLAGS		= -Wall -Werror -Wextra -std=c++98 -Og#-Wshadow
 RM			= rm -f
 
 SRC_PATH	= ./srcs/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:32:12 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/03 15:03:31 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/03 22:09:56 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ Character::Character( Character const &src ):_name(src._name){
 		else 
 			this->_items[i] = NULL;
 	}	
-	std::cout << "Character: " << this->_name << " has been cloned!" << std::endl;
+	std::cout << "Character: " << this->_name << " has been copied!(copy constructor)" << std::endl;
+
 }
 
-Character::~Character( void ){//TODO: Que se passe t'il si on a plusieurs pointeurs sur le meme item
+Character::~Character( void ){
 	for (int i = 0; i < 4; i++){
 		if (_items[i] != NULL){
 			delete (_items[i]);
@@ -46,11 +47,25 @@ Character::~Character( void ){//TODO: Que se passe t'il si on a plusieurs pointe
 	}
 	std::cout << "Character: " << this->_name << " has been destroyed!" << std::endl;
 }
-/*
-Character	&Character::operator=( Character const &rhs ){
 
+Character	&Character::operator=( Character const &rhs ){
+	if (this == &rhs)
+		std::cout << "Character: " << this->_name << " same memory adress -- no copy!" << std::endl;
+	else {
+		for (int i = 0; i < 4; i++){
+			if (this->_items[i]){
+				delete (this->_items[i]);
+				this->_items[i] = rhs._items[i]->clone();
+			}
+			else
+				this->_items[i] = NULL;
+		}
+		this->_name = rhs._name;
+		std::cout << "Character: " << this->_name << " has been copied!(operator overload)" << std::endl;
+	}
+	return (*this);
 }
-*/
+
 std::string	const	&Character::getName( void ) const {
 	return (this->_name);
 }
@@ -82,3 +97,12 @@ void		Character::use(int idx, ICharacter &target){
 
 }
 */
+void		Character::showItems( void ){
+	int	i = 0;
+	std::cout << "\nCharacter: " << this->_name << " in adress " << this << std::endl;
+	std::cout << "Items :" << std::endl;
+	while (this->_items[i]){
+		std::cout << "\tItem " << i << " : " << this->_items[i]->getType() << " adress : " << this->_items[i] << std::endl;	
+		i++;
+	}
+}
