@@ -6,7 +6,7 @@
 /*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:32:12 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/03 22:09:56 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/10/06 00:36:31 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Character::Character( void ):_name("no name"){
 	for (int i = 0; i < 4; i++){
 		_items[i] = NULL;
 	}
+	this->_nbThrown = 0;
 	std::cout << "Character: " << this->_name << " has been created!" << std::endl;
 }
 
@@ -24,6 +25,7 @@ Character::Character(std::string name):_name(name){
 	for (int i = 0; i < 4; i++){
 		_items[i] = NULL;
 	}
+	this->_nbThrown = 0;
 	std::cout << "Character: " << this->_name << " has been created!" << std::endl;
 }
 
@@ -34,6 +36,7 @@ Character::Character( Character const &src ):_name(src._name){
 		else 
 			this->_items[i] = NULL;
 	}	
+	this->_nbThrown = 0;
 	std::cout << "Character: " << this->_name << " has been copied!(copy constructor)" << std::endl;
 
 }
@@ -44,6 +47,10 @@ Character::~Character( void ){
 			delete (_items[i]);
 			_items[i] = NULL;
 		}
+	}
+	for (int i = 0; i < this->_nbThrown; i++){
+		delete (_thrown[i]);
+		_thrown[i] = 0;
 	}
 	std::cout << "Character: " << this->_name << " has been destroyed!" << std::endl;
 }
@@ -87,16 +94,32 @@ void		Character::equip(AMateria *m){
 	else
 		std::cout << "Character " << this->_name << " has too much equipment" << std::endl;
 }
-/*
-void		Character::unequip(int idx){
-	std::cout << "Character TEST: " << this->_name << " unequip" << std::endl;
 
-}
+//TODO:Gerer mauvais idx ou idx vide | Retirer le Materia et le mettre dans une autre structure
+void		Character::unequip(int idx){
+	if (idx < 0 || idx > 3 || !this->_items[idx])
+		std::cout << "Character " << this->_name << " : there's no Materia at this index" << std::endl;
+	else {
+		std::cout << "Character " << this->_name << " :  unequip " << this->_items[idx]->getType() << std::endl;
+		this->_thrown[_nbThrown] = _items[idx];
+		this->_nbThrown++;
+		this->_items[idx] = NULL;
+	}	
+
+} 
 
 void		Character::use(int idx, ICharacter &target){
-
+	if (idx < 0 || idx > 3 || !this->_items[idx])
+		std::cout << "Character " << this->_name << " : there's no Materia at this index" << std::endl;
+	else{ 
+		std::cout << "Character " << this->_name << " : ";
+		if (this == &target)
+			std::cout << "(self usage) ";
+		this->_items[idx]->use(target);
+	}
 }
-*/
+
+// TODO: Si on unequip 1 Materia, est ce qu'il affiche tous les materias au bon index? 
 void		Character::showItems( void ){
 	int	i = 0;
 	std::cout << "\nCharacter: " << this->_name << " in adress " << this << std::endl;

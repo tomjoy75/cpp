@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:05:04 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/02 16:44:37 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/04 13:42:56 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ AMateria	&AMateria::operator=(AMateria const &rhs){
 std::string const & AMateria::getType() const{ //Returns the materia type
 	return (this->_type);
 }
-
-//	virtual AMateria* clone() const = 0;
 
 void	AMateria::use(ICharacter& target){
 	std::cout << "AMateria use on " << target.getName() << std::endl;
