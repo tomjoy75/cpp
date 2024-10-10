@@ -12,17 +12,17 @@
 
 ## 📚 List of Modules
 
-| Module                                            | Description                                             |
-|---------------------------------------------------|---------------------------------------------------------|
-| [module_00](./module_00/README.md)                | Introduction to C++, classes, and instances             |
-| [module_01](./module_01/README.md)                | Dynamic allocation, references, and file streams        |
-| [module_02](./module_02/README.md)                | Polymorphism, operator overloading, and canonical form  |
-| [module_03](./module_03/README.md)                | Inheritance                                             |
-| [module_04](./module_04/README.md)                | Subtype polymorphism, abstract classes, and interfaces  |
-| [module_05](./module_05/README.md)                | Exceptions                                              |
-| [module_06](./module_06/README.md)                | Casts                                                   |
-| [module_07](./module_07/README.md)                | Templates                                               |
-| [module_08](./module_08/README.md)                | Standard Template Library (STL)                         |
+| Module                                   | Description                                             |
+|------------------------------------------|---------------------------------------------------------|
+| [module_00](./module_00/)                | Introduction to C++, classes, and instances             |
+| [module_01](./module_01/)                | Dynamic allocation, references, and file streams        |
+| [module_02](./module_02/)                | Polymorphism, operator overloading, and canonical form  |
+| [module_03](./module_03/)                | Inheritance                                             |
+| [module_04](./module_04/)                | Subtype polymorphism, abstract classes, and interfaces  |
+| [module_05](./module_05/)                | Exceptions                                              |
+| [module_06](./module_06/)                | Casts                                                   |
+| [module_07](./module_07/)                | Templates                                               |
+| [module_08](./module_08/)                | Standard Template Library (STL)                         |
 
 ---
 
