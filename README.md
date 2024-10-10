@@ -19,7 +19,7 @@
 | [module_02](./module_02/README.md)                | Polymorphism, operator overloading, and canonical form  |
 | [module_03](./module_03/README.md)                | Inheritance                                             |
 | [module_04](./module_04/README.md)                | Subtype polymorphism, abstract classes, and interfaces  |
-| [module_05](./module_05/README.md)                | Exceptions                                              |
+| [module_05](./module_05/)                | Exceptions                                              |
 | [module_06](./module_06/README.md)                | Casts                                                   |
 | [module_07](./module_07/README.md)                | Templates                                               |
 | [module_08](./module_08/README.md)                | Standard Template Library (STL)                         |
