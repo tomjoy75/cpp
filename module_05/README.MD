@@ -80,4 +80,6 @@ void test3()
 ```
 # Liens
 
-[Error handling](https://en.cppreference.com/w/cpp/error)
+[Error handling](https://en.cppreference.com/w/cpp/error) \
+[Open Classroom](https://openclassrooms.com/fr/courses/7137751-programmez-en-oriente-objet-avec-c/7532931-gerez-des-erreurs-avec-les-exceptions) \
+[W3 school](https://www.w3schools.com/cpp/cpp_exceptions.asp)
