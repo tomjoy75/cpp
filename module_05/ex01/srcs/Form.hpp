@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:49:56 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/14 17:02:54 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/15 17:41:34 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FORM_HPP
 
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class	Form{
 
@@ -44,7 +46,12 @@ public:
 	};
 
 	class GradeTooLowException: public std::exception{
+		private:
+			std::string	_msg;
 		public:
+			GradeTooLowException(std::string const &msg);
+			virtual ~GradeTooLowException( void ) throw();
+
 			virtual const char	*what()const throw();	
 	};
 };

@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:09:30 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/14 16:46:15 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/15 17:42:27 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ void		Bureaucrat::decGrade( void ){
 	this->_grade++;
 }
 
+void		Bureaucrat::signForm(Form &form) const{
+	form.beSigned(*this);
+}
+	
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
 	return (RED"The lowest grade possible is 150!"RESET );
 }

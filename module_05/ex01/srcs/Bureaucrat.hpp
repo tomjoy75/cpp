@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:03:02 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/11 17:28:01 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/15 17:42:14 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
+# include "Form.hpp"
 
 #define	LOW 150
 #define HIGH 1
@@ -27,6 +28,8 @@
 # define BOLD "\033[1m"
 # define ITALIC "\033[3m"
 # define BLINK "\e[5m"
+
+class	Form;
 
 class	Bureaucrat{
 
@@ -46,6 +49,7 @@ public:
 	int			getGrade( void )const ;
 	void		incGrade( void );
 	void		decGrade( void );
+	void		signForm(Form &form) const;
 
 	class GradeTooHighException : public std::exception{
 		public:

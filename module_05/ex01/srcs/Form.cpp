@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:09:42 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/14 17:11:57 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/15 17:41:47 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Form::Form( void ):_name("no_name"), _signed(false), _grSign(150), _grExec(150){
 
 Form::Form( std::string name, int grSign, int grExec): _name(name), _signed(false), _grSign(grSign), _grExec(grExec){
 	if (grSign > 150 || grExec > 150)
-		throw (GradeTooLowException());
+		throw (GradeTooLowException(RED"The lowest grade for the form possible is 150!"RESET));
 	else if (grSign < 1 || grExec < 1)
 		throw (GradeTooHighException());
 	std::cout << "Parametric Constructor (Form) for " << this->_name << std::endl;
@@ -61,22 +61,36 @@ int			Form::getGradeSign( void ) const{
 	return (this->_grExec);
 }
 
-
 void		Form::beSigned(Bureaucrat const &person ){
-	if (person.getGrade() <= this->_grSign) 
+	if (this->_signed)
+		throw (GradeTooLowException(RED + person.getName() + " couldn't sign " + this->_name + " because the form is already signed" + RESET));
+	if (person.getGrade() <= this->_grSign){
+		std::cout << GREEN << person.getName() << " signed " << this->getName() << RESET << std::endl;	
 		this->_signed = true;
+	}
+	else
+		throw (GradeTooLowException(RED + person.getName() + " couldn't sign " + this->_name + " because his grade is too low" + RESET));
+//std::cout << RED << person.getName() << " is not allowed to sign form " << this->getName() <<  RESET << std::endl;	
 }
 	
 const char	*Form::GradeTooHighException::what()const throw(){	
 	return (RED"The highest grade possible for the form is 1!"RESET );
 }
 
+Form::GradeTooLowException::GradeTooLowException(std::string const &msg): _msg(msg){
+}
+
+Form::GradeTooLowException::~GradeTooLowException( void ) throw(){
+
+}
+			
 const char	*Form::GradeTooLowException::what()const throw(){	
-	return (RED"The lowest grade for the form possible is 150!"RESET );
+//	return (RED"The lowest grade for the form possible is 150!"RESET );
+	return (this->_msg.c_str());
 }
 
 std::ostream	&operator<<(std::ostream &o, Form const &rhs){
-	o << ITALIC << "Name                   : " << rhs.getName() << std::endl;
+	o << ITALIC << "Name of form           : " << rhs.getName() << std::endl;
 	o << "is Signed ?            : " << std::boolalpha << rhs.getSigned() << std::endl;
 	o << "grade required to Sign : " << rhs.getGradeSign() << std::endl;
 	o << "grade required to Exec : " << rhs.getGradeExec() << RESET << std::endl;
