@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:09:42 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:43:45 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/18 00:30:39 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,18 @@ bool		AForm::getSigned( void ) const{
 }
 
 int			AForm::getGradeExec( void ) const{
-	return (this->_grSign);
+	return (this->_grExec);
 }
 
 int			AForm::getGradeSign( void ) const{
-	return (this->_grExec);
+	return (this->_grSign);
 }
 
 void		AForm::beSigned(Bureaucrat const &person ){
 	if (this->_signed)
 		throw (GradeTooLowException(RED + person.getName() + " couldn't sign " + this->_name + " because the form is already signed" + RESET));
 	if (person.getGrade() <= this->_grSign){
-		std::cout << GREEN << person.getName() << " signed " << this->getName() << RESET << std::endl;	
+		std::cout << ITALIC << person.getName() << " signed " << this->getName() << RESET << std::endl;	
 		this->_signed = true;
 	}
 	else
@@ -89,8 +89,12 @@ const char	*AForm::GradeTooLowException::what()const throw(){
 	return (this->_msg.c_str());
 }
 
+const char	*AForm::FormNotSigned::what()const throw(){
+	return (RED"The form can't be executed because it hasn't been signed !!!"RESET);
+}
+			
 std::ostream	&operator<<(std::ostream &o, AForm const &rhs){
-	o << ITALIC << "Name of form           : " << rhs.getName() << std::endl;
+	o << ITALIC << "Name of form    : " << rhs.getName() << std::endl;
 	o << "is Signed ?            : " << std::boolalpha << rhs.getSigned() << std::endl;
 	o << "grade required to Sign : " << rhs.getGradeSign() << std::endl;
 	o << "grade required to Exec : " << rhs.getGradeExec() << RESET << std::endl;

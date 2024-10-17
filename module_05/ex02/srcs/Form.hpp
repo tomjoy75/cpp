@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:49:56 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/16 16:34:18 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/17 17:25:49 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ public:
 	int					getGradeSign( void ) const;
 
 	void				beSigned( Bureaucrat const &person );
-	virtual void		execute( Bureaucrat const &executor ) = 0;
+	virtual void		execute( Bureaucrat const &executor ) const = 0;
 
 	class GradeTooHighException: public std::exception{
 		public:
@@ -55,6 +55,10 @@ public:
 			virtual ~GradeTooLowException( void ) throw();
 
 			virtual const char	*what()const throw();	
+	};
+	class FormNotSigned: public std::exception{
+		public:
+			virtual const char	*what()const throw();
 	};
 };
 std::ostream	&operator<<(std::ostream &o, AForm const &rhs);

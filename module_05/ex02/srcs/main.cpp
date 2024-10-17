@@ -3,25 +3,98 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:10:32 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/16 16:21:37 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/18 00:40:50 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 //#include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"	
+#include "RobotomyRequestForm.hpp"
 
 int	main( void ){
 	std::cout << BLUE << BOLD << "-----TESTING-----" << RESET << std::endl;
+	std::cout << BLUE << ITALIC << "\tCreate several bureaucrats and forms:" << RESET << std::endl;
 	AForm	*test = new ShrubberyCreationForm();
 	ShrubberyCreationForm	home("home");
 	ShrubberyCreationForm	home2(home);
-	Bureaucrat				tom("tom", 122);
-	home2.execute(tom);
-	delete (test);
+	Bureaucrat				junior("Junior", 148);
+	Bureaucrat				boss("Boss", 1);
+	std::cout << BLUE << ITALIC << "\tTheir presentation" << RESET << std::endl;
+	std::cout << "Bureaucrat : " << junior << std::endl;
+	std::cout << "Bureaucrat : " << boss << std::endl;
+	std::cout << "Form : " << home << std::endl;
+	std::cout << "Form : " << home2 << std::endl;
+	std::cout << BLUE << ITALIC << "\tTry to sign a form by a not allowed bureaucrat" << RESET << std::endl;
+	try {
+		junior.signForm(home);
+	}
+	catch(AForm::FormNotSigned &e){
+		std::cout << e.what() << std::endl;
+	}
+	catch(AForm::GradeTooLowException &e){
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << BLUE << ITALIC << "\tTry to execute a form not already signed:" << RESET << std::endl;
+	try {
+//		home.execute(boss);
+		boss.executeForm(home);
+	}
+	catch(AForm::FormNotSigned &e){
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << BLUE << ITALIC << "\tSign the form and execute:" << RESET << std::endl;
+	boss.signForm(home);
+	try {
+	//	home.execute(boss);
+		boss.executeForm(home);
+	}
+	catch(AForm::FormNotSigned &e){
+		std::cout << e.what() << std::endl;
+	}
+	catch(AForm::GradeTooLowException &e){
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << BLUE << ITALIC << "\tTry Sign the form already signed:" << RESET << std::endl;
+	try {
+		boss.signForm(home);
+	}
+	catch(AForm::FormNotSigned &e){
+		std::cout << e.what() << std::endl;
+	}
+	catch(AForm::GradeTooLowException &e){
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << BLUE << ITALIC << "\tTry to execute a form by a not allowed bureaucrat" << RESET << std::endl;
+	try {
+	//	home.execute(junior);
+		junior.executeForm(home);
+	}
+	catch(AForm::FormNotSigned &e){
+		std::cout << e.what() << std::endl;
+	}
+	catch(AForm::GradeTooLowException &e){
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << BLUE << ITALIC << "\tExecute Robotomy request:" << RESET << std::endl;
+	RobotomyRequestForm	request("office");
+	boss.signForm(request);
+	std::cout << "Bureaucrat : " << boss << std::endl;
+	std::cout << "Form : " << request << std::endl;
+	try {
+	//	home.execute(boss);
+		boss.executeForm(request);
+	}
+	catch(AForm::FormNotSigned &e){
+		std::cout << e.what() << std::endl;
+	}
+	catch(AForm::GradeTooLowException &e){
+		std::cout << e.what() << std::endl;
+	}
+	
 /*	std::cout << BLUE << ITALIC << "\tCreate a default bureaucrat and default form:" << RESET << std::endl;
 	Bureaucrat	nobody;
 	std::cout << nobody;
@@ -120,5 +193,6 @@ int	main( void ){
 	}
 */	
 	std::cout << BLUE << BOLD << "-----ENDING-----" << RESET << std::endl;
+	delete (test);
 	return (0);
 }

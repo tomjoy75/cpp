@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:09:30 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:37:35 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/17 23:07:49 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,11 @@ void		Bureaucrat::decGrade( void ){
 
 void		Bureaucrat::signForm(AForm &form) const{
 	form.beSigned(*this);
+}
+	
+void		Bureaucrat::executeForm(AForm const &form) const{
+	form.execute(*this);
+	std::cout << ITALIC << this->_name << " executed " << form.getName() << RESET << std::endl;
 }
 	
 const char* Bureaucrat::GradeTooLowException::what() const throw(){

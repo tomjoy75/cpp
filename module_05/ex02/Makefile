@@ -6,7 +6,7 @@
 #    By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/10/15 10:42:13 by tjoyeux          ###   ########.fr        #
+#    Updated: 2024/10/17 23:12:59 by joyeux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ clean :
 	@echo "$(MAGENTA)$(BOLD)Cleaning: $(RESET)$(BLUE)$(ITALIC)$(OBJ)$(RESET)"
 	$(RM) $(OBJ_PATH)*.o
 	$(RM) -r $(OBJ_PATH)
+	$(RM) *_shrubbery
 	@echo "$(MAGENTA)$(BOLD)Cleaning: $(RESET)$(BLUE)$(ITALIC)$(FLAG_FILE)$(RESET)"
 	$(RM) .build_started
 

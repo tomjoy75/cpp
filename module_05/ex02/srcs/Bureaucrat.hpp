@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:03:02 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:37:14 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/17 17:19:53 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_H
 
 # include <iostream>
+# include <fstream>
 # include <string>
 # include <stdexcept>
 # include "Form.hpp"
@@ -35,7 +36,7 @@ class	Bureaucrat{
 
 private:
 	std::string const	_name;
-	int					_grade;
+	int			_grade;
 
 public:
 	Bureaucrat( void );
@@ -50,6 +51,7 @@ public:
 	void		incGrade( void );
 	void		decGrade( void );
 	void		signForm(AForm &form) const;
+	void		executeForm(AForm const &form) const;
 
 	class GradeTooHighException : public std::exception{
 		public:

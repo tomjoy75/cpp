@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:09:42 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/15 17:41:47 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/17 17:03:33 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ bool		Form::getSigned( void ) const{
 }
 
 int			Form::getGradeExec( void ) const{
-	return (this->_grSign);
+	return (this->_grExec);
 }
 
 int			Form::getGradeSign( void ) const{
-	return (this->_grExec);
+	return (this->_grSign);
 }
 
 void		Form::beSigned(Bureaucrat const &person ){
