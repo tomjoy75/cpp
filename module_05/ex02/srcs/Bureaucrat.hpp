@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:03:02 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/17 17:19:53 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/10/18 11:55:18 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fstream>
 # include <string>
 # include <stdexcept>
+# include <sstream>
 # include "Form.hpp"
 
 #define	LOW 150

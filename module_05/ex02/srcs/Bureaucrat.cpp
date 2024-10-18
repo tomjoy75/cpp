@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:09:30 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/17 23:07:49 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/10/18 12:15:53 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,20 @@ const char* Bureaucrat::GradeTooHighException::what() const throw(){
 	return (RED"The highest grade possible is 1!"RESET);
 }
 
+std::string	&makeLine(int size){
+		
+	for (int i = 0; i < size; i++){
+		o << "*" ;
+	}
+}
+
 std::ostream	&operator<<(std::ostream &o, Bureaucrat const & rhs ){
+	std::ostringstream os;
+	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();   
+	for (int i = 0; i < (int)os.str().size(); i++){
+		o << "*" ;
+	}
+	o << std::endl;
 	o << ITALIC << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << RESET << std::endl;
 	return (o);
 }

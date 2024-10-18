@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:10:32 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/18 00:40:50 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/10/18 12:07:12 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 //#include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"	
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main( void ){
 	std::cout << BLUE << BOLD << "-----TESTING-----" << RESET << std::endl;
@@ -24,8 +25,8 @@ int	main( void ){
 	Bureaucrat				junior("Junior", 148);
 	Bureaucrat				boss("Boss", 1);
 	std::cout << BLUE << ITALIC << "\tTheir presentation" << RESET << std::endl;
-	std::cout << "Bureaucrat : " << junior << std::endl;
-	std::cout << "Bureaucrat : " << boss << std::endl;
+	std::cout << junior << std::endl;
+	std::cout << boss << std::endl;
 	std::cout << "Form : " << home << std::endl;
 	std::cout << "Form : " << home2 << std::endl;
 	std::cout << BLUE << ITALIC << "\tTry to sign a form by a not allowed bureaucrat" << RESET << std::endl;
@@ -79,14 +80,30 @@ int	main( void ){
 	catch(AForm::GradeTooLowException &e){
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << BLUE << ITALIC << "\tExecute Robotomy request:" << RESET << std::endl;
+	std::cout << BLUE << ITALIC << "\tExecute Robotomy request form:" << RESET << std::endl;
 	RobotomyRequestForm	request("office");
+	std::cout << boss << std::endl;
 	boss.signForm(request);
-	std::cout << "Bureaucrat : " << boss << std::endl;
-	std::cout << "Form : " << request << std::endl;
+	std::cout << request << std::endl;
 	try {
 	//	home.execute(boss);
 		boss.executeForm(request);
+	}
+	catch(AForm::FormNotSigned &e){
+		std::cout << e.what() << std::endl;
+	}
+	catch(AForm::GradeTooLowException &e){
+		std::cout << e.what() << std::endl;
+	}
+	
+	std::cout << BLUE << ITALIC << "\tExecute presidential pardon form:" << RESET << std::endl;
+	PresidentialPardonForm	pardon("Manager's office");
+	std::cout << boss << std::endl;
+	boss.signForm(pardon);
+	std::cout << pardon << std::endl;
+	try {
+	//	home.execute(boss);
+		boss.executeForm(pardon);
 	}
 	catch(AForm::FormNotSigned &e){
 		std::cout << e.what() << std::endl;
