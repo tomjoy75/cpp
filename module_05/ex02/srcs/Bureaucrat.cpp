@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:09:30 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/18 12:15:53 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/18 15:46:10 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void		Bureaucrat::signForm(AForm &form) const{
 	
 void		Bureaucrat::executeForm(AForm const &form) const{
 	form.execute(*this);
-	std::cout << ITALIC << this->_name << " executed " << form.getName() << RESET << std::endl;
+	std::cout << ITALIC << this->_name << " execute " << form.getName() << RESET << std::endl << std::endl;
 }
 	
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
@@ -82,20 +82,20 @@ const char* Bureaucrat::GradeTooHighException::what() const throw(){
 	return (RED"The highest grade possible is 1!"RESET);
 }
 
-std::string	&makeLine(int size){
+std::string	makeLine( char c, int size, bool column ){
 		
-	for (int i = 0; i < size; i++){
-		o << "*" ;
-	}
-}
+	if (column)
+		return ("*" + std::string(size - 2, c) + "*\n");
+	else
+		return (std::string(size, c) + "\n");
+} 
 
 std::ostream	&operator<<(std::ostream &o, Bureaucrat const & rhs ){
 	std::ostringstream os;
-	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();   
-	for (int i = 0; i < (int)os.str().size(); i++){
-		o << "*" ;
-	}
-	o << std::endl;
-	o << ITALIC << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << RESET << std::endl;
+	os << "* " << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << " *";   
+	int size = os.str().size();
+	std::string line = makeLine('*', size, 0);
+	line += makeLine(' ', size, 1);
+	o << line << ITALIC << os.str() << RESET << std::endl << makeLine(' ', size, 1) << makeLine('*', size, 0);
 	return (o);
 }

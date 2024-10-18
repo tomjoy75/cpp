@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:09:42 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/18 00:30:39 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/10/18 15:34:50 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,11 @@ void		AForm::beSigned(Bureaucrat const &person ){
 	if (this->_signed)
 		throw (GradeTooLowException(RED + person.getName() + " couldn't sign " + this->_name + " because the form is already signed" + RESET));
 	if (person.getGrade() <= this->_grSign){
-		std::cout << ITALIC << person.getName() << " signed " << this->getName() << RESET << std::endl;	
+		std::cout << ITALIC << person.getName() << " signed " << this->getName() << RESET << std::endl << std::endl;	
 		this->_signed = true;
 	}
 	else
 		throw (GradeTooLowException(RED + person.getName() + " couldn't sign " + this->_name + " because his grade is too low" + RESET));
-//std::cout << RED << person.getName() << " is not allowed to sign form " << this->getName() <<  RESET << std::endl;	
 }
 	
 const char	*AForm::GradeTooHighException::what()const throw(){	
@@ -94,10 +93,9 @@ const char	*AForm::FormNotSigned::what()const throw(){
 }
 			
 std::ostream	&operator<<(std::ostream &o, AForm const &rhs){
-	o << ITALIC << "Name of form    : " << rhs.getName() << std::endl;
+	o << ITALIC << "Name of form           : " << rhs.getName() << std::endl;
 	o << "is Signed ?            : " << std::boolalpha << rhs.getSigned() << std::endl;
 	o << "grade required to Sign : " << rhs.getGradeSign() << std::endl;
 	o << "grade required to Exec : " << rhs.getGradeExec() << RESET << std::endl;
 	return (o);
 }
-

@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:10:32 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/18 12:07:12 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/18 15:28:03 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	main( void ){
 	std::cout << BLUE << ITALIC << "\tTheir presentation" << RESET << std::endl;
 	std::cout << junior << std::endl;
 	std::cout << boss << std::endl;
-	std::cout << "Form : " << home << std::endl;
-	std::cout << "Form : " << home2 << std::endl;
+	std::cout << home << std::endl;
+	std::cout << home2 << std::endl;
 	std::cout << BLUE << ITALIC << "\tTry to sign a form by a not allowed bureaucrat" << RESET << std::endl;
 	try {
 		junior.signForm(home);
@@ -84,7 +84,7 @@ int	main( void ){
 	RobotomyRequestForm	request("office");
 	std::cout << boss << std::endl;
 	boss.signForm(request);
-	std::cout << request << std::endl;
+	std::cout << std::endl << request << std::endl;
 	try {
 	//	home.execute(boss);
 		boss.executeForm(request);
