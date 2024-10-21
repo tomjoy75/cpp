@@ -27,6 +27,7 @@ public:
 	
 	virtual void	execute(Bureaucrat const &executor) const;
 	std::string	const &getTarget( void ) const;
+	virtual	void	setTarget(std::string const &target);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:09:42 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/18 15:34:50 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/21 15:44:10 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ std::ostream	&operator<<(std::ostream &o, AForm const &rhs){
 	o << ITALIC << "Name of form           : " << rhs.getName() << std::endl;
 	o << "is Signed ?            : " << std::boolalpha << rhs.getSigned() << std::endl;
 	o << "grade required to Sign : " << rhs.getGradeSign() << std::endl;
-	o << "grade required to Exec : " << rhs.getGradeExec() << RESET << std::endl;
+	o << "grade required to Exec : " << rhs.getGradeExec() << std::endl;
+	o << "with target	       : " << rhs.getTarget() << RESET << std::endl;
 	return (o);
 }

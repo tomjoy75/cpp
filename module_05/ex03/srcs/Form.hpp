@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:49:56 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/17 17:25:49 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:40:44 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ public:
 
 	void				beSigned( Bureaucrat const &person );
 	virtual void		execute( Bureaucrat const &executor ) const = 0;
+	virtual	void		setTarget(std::string const &target) = 0;
+	virtual std::string	const &getTarget( void ) const = 0;
 
 	class GradeTooHighException: public std::exception{
 		public:

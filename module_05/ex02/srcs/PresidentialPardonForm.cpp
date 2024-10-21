@@ -12,11 +12,11 @@
 
 #include "PresidentialPardonForm.hpp"	 
 
-PresidentialPardonForm::PresidentialPardonForm( void ):AForm("PresidentialPardonForm", 72, 45), _target("noTarget"){
+PresidentialPardonForm::PresidentialPardonForm( void ):AForm("PresidentialPardonForm", 25, 5), _target("noTarget"){
 	std::cout << "Default Constructor (PresidentialPardonForm)" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string target ):AForm("PresidentialPardonForm", 72, 45), _target(target){
+PresidentialPardonForm::PresidentialPardonForm( std::string target ):AForm("PresidentialPardonForm", 25, 5), _target(target){
 	std::cout << "Parametric Constructor (PresidentialPardonForm) with target " << this->_target << std::endl;
 }
 

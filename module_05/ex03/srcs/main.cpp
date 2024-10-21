@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:10:32 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/21 01:23:15 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/10/21 16:28:13 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,33 @@ int	main( void ){
 	Intern someRandomIntern;
 	AForm* rrf;
 
-	std::cout << BLUE << ITALIC << "\tAssign a valid form" << RESET << std::endl;
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	std::cout << *rrf << std::endl;
+	std::cout << BLUE << ITALIC << "\tIntern create a valid presidential pardon" << RESET << std::endl;
+	try{
+		rrf = someRandomIntern.makeForm("presidential pardon", "Office");
+		std::cout << *rrf << std::endl;
+	}
+	catch (Intern::FormNotFound &e){
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << BLUE << ITALIC << "\tIntern create a valid robotomy request" << RESET << std::endl;
+	try{
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		std::cout << *rrf << std::endl;
+	}
+	catch (Intern::FormNotFound &e){
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << BLUE << ITALIC << "\tIntern create a valid shrubbery creation" << RESET << std::endl;
+	try{
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Creation lab");
+		std::cout << *rrf << std::endl;
+	}
+	catch (Intern::FormNotFound &e){
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << BLUE << ITALIC << "\tAssign an invalid form" << RESET << std::endl;
 	try{
-		rrf = someRandomIntern.makeForm("bad request", "Bender");
+		rrf = someRandomIntern.makeForm("bad request", "Home");
 		std::cout << *rrf << std::endl;
 	}
 	catch (Intern::FormNotFound &e){
@@ -128,7 +149,7 @@ int	main( void ){
 	}
 */
 	std::cout << BLUE << BOLD << "-----ENDING-----" << RESET << std::endl;
-	delete (rrf);
+//	delete (rrf);
 //	delete (test);
 	return (0);
 }

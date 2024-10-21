@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 23:04:21 by joyeux            #+#    #+#             */
-/*   Updated: 2024/10/21 01:30:43 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/10/21 16:32:55 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,13 @@ const char	*Intern::FormNotFound::what() const throw(){
 			
 AForm	*Intern::makeForm(std::string name, std::string target) const{
 	AForm	*form = NULL;
-/*	switch (name){
-		case "PresidentialPardon":
-			AForm	*form = new PresidentialPardonForm();
-			break;
-		default:
-			std::cout << "Incorrect name : " << name << std::endl;*/
-	std::cout << target << std::endl;
-	if (name == "presidential pardon")
-		form = new PresidentialPardonForm();
-	if (name == "robotomy request")
-		form = new RobotomyRequestForm();
-	else 
-		throw FormNotFound();
-
-	return (form);
+	for (int i = 0; i < 3 ; i++){
+		if (name == _forms[i]->getName()){
+			form = _forms[i];
+			form->setTarget(target);
+			std::cout << GREEN << "Intern creates " << name << RESET << std::endl; 
+			return (form);
+		}
+	}
+	throw FormNotFound();
 }

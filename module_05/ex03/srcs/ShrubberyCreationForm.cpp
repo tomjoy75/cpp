@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joyeux <joyeux@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:34:37 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/18 00:20:12 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:34:21 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"	 
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ):AForm("ShrubberyCreationForm", 145, 137), _target("noTarget"){
+ShrubberyCreationForm::ShrubberyCreationForm( void ):AForm("shrubbery creation", 145, 137), _target("noTarget"){
 	std::cout << "Default Constructor (ShrubberyCreationForm)" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target ):AForm("ShrubberyCreationForm", 145, 137), _target(target){
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ):AForm("shrubbery creation", 145, 137), _target(target){
 	std::cout << "Parametric Constructor (ShrubberyCreationForm) with target " << this->_target << std::endl;
 }
 
@@ -117,4 +117,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const{//TODO che
 
 std::string	const &ShrubberyCreationForm::getTarget( void ) const{
 	return (this->_target);
+}
+
+void	ShrubberyCreationForm::setTarget(std::string const &target){
+	this->_target = target;
 }
