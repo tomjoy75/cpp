@@ -6,11 +6,11 @@
 #    By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/10/08 17:18:19 by tjoyeux          ###   ########.fr        #
+#    Updated: 2024/10/24 13:51:48 by tjoyeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= bureaucrat 
+NAME		= convert 
 CXX			= c++
 CXXFLAGS		= -Wall -Werror -Wextra -std=c++98 -Og
 RM			= rm -f

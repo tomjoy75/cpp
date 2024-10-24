@@ -63,6 +63,7 @@ Child2	*f = (Child2 *)d;		//Explicit downcast -> Possible but big problem (Child
 ```
 C++ propose a series of special casts to resolve this kind of problems
 # Cast operations
+- ### Implicit cast
 - ### Static cast
 for simple values : `static_cast<#type>(#value)`
 ```cpp
@@ -82,8 +83,75 @@ Child2	*d = static_cast<Child2 *>(b);// Explicit downcast -> Possible
 
 Unrelated	*e = static_cast<Unrelated *>(&a);// Explicit conversion -> No!
 ```
-<div style="border: 4px solid yellow; padding: 10px;">
-**static_cast** allows simple operation, downcasting and upcasting, and prevent from casting unrelated classes.<div\>
+### <u>**static_cast** allows simple operation, downcasting and upcasting, and prevent from casting unrelated classes.</u>
 
 - ### Dynamic cast
-- 
+1. done at the runtime (all the other are done at the compilation) 
+2. functions with polymorphic instance (at least one member function is virtual)
+```cpp
+Child1	a;
+Parent	*b = &a;				// Implicit upcast
+
+Child1	*c = dynamic_cast<Child1 *>(b); // Explicit downcast
+if (c == NULL){					// if the dynamic cast is not possible, it returns NULL
+	...
+}
+else {
+	...
+}
+
+try{
+	Child2	&d = dynamic_cast<Child2 &>(*b); //Explicit downcast (Wrong one)
+	...
+}
+catch ( std::bad_cast &bc){		// A reference can't be NULL... so we use an exception
+	...
+}
+```
+- ### Reinterpret cast
+most permissive cast
+```cpp
+float	a = 420.042f
+
+void	*b = &a;						// Implicit promotion
+int		*c = reinterpret_cast<int *>(b);// Explicit demotion ...accepted
+int		&d = reinterpret_cast<int &>(b);// Explicit demotion ...accepted
+```
+use-case: retype data from a source
+- ### Const cast
+for reinterpretation of qualifiers
+```cpp
+int			a = 42;
+
+int	const	*b = &a;					// Implicit promotion
+int			*c = b;						// Implicit demotion -> Hell no!!!
+int			*d = const_cast<int *>(b);	// Explicit demotion...accepted
+```
+<u>You should avoid const_cast</u>
+==You should avoid const_cast==
+# Cast operators
+```cpp
+class	Foo{
+public:
+	Foo(float const v): _v(v) {}
+
+	operator float()	{return (this->_v);}
+	operator int()		{return static_cast<int>(this->_v);}
+private:
+	float	_v;
+}
+```
+# explicit
+used to prevent implicit cast from happening
+`explicit class MyClass(int value): data(value) {}`
+# Resume
+| Cast | Conv. | Reint. | Upcast | Downcast | Type qual. | Semantic check | Reliable at run | Tested at run |
+|----- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | 
+| Implicit | Yes | | Yes | | | Yes | Yes | |
+| static cast | Yes | | Yes | Yes | | Yes | | |
+| dynamic cast | | | Yes | Yes | | Yes | Yes | Yes |
+| const cast | | | | | Yes |
+| reinterpret cast | | Yes | Yes | Yes | Yes |
+| ----- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | 
+| legacy C cast | Yes | Yes | Yes | Yes | Yes |
+| ----- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | 
