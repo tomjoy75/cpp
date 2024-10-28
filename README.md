@@ -35,6 +35,7 @@
 | Object-Oriented Programming Principles | [Explore](https://www.tutorialspoint.com/cplusplus/cpp_object_oriented.htm)           |
 | Memory Management in C++               | [Read](https://www.cplusplus.com/doc/tutorial/dynamic/)                               |
 | C++ Standards (C++11, C++14, etc.)     | [Consult](https://en.cppreference.com/w/cpp/11)                                       |
+| Collected tips and tricks              | [Tips & Tricks](doc/tips.md)
 
 ---
 
