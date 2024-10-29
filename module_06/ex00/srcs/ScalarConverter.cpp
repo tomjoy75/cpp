@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:53:58 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/10/28 13:55:17 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/10/29 14:07:27 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,24 @@ static void	identify(std::string const &str){
 //	std::cout << "int : " << i << std::endl;
 }*/
 static bool isInt(std::string const &str){
-	for (int i = 0; i < str.size(); i++){
-		if (!str[i].isdigit())
+	size_t	i = 0;
+	std::stringstream	ss(str);
+	int					j;
+
+	if (str.empty())
+		return (false);
+	if (str[0] == '+' || str[0] == '-'){
+		if (str.size() == 1)
+			return (false);
+		i++;
+	}
+	for (; i < str.size(); i++){
+		if (!isdigit(str[i]))
 			return (false);
 	}
+	ss >> j;
+	if (ss.fail())
+		return (false);
 	return true;
 }
 
@@ -61,17 +75,38 @@ static bool	isChar(std::string const &str){
 }
 
 static bool isFloat(std::string const &str){
+	std::stringstream	ss(str);
+	float				f;	
 
+	if (str == "-inff" || str == "+inff" || str == "nanf")
+		return (true);
+//	std::cout << str.size() << std::endl;
+//	std::cout << str[str.size() - 1] << std::endl;
+	if (str.at(str.size() - 1) != 'f')
+		return (false);
+	ss >> f;
+	if (ss.fail())
+		return (false);
+	return (true);
+	
 }
 
 static bool isDouble(std::string const &str){
+	std::stringstream	ss(str);
+	double				d;	
 
+	if (str == "-inf" || str == "+inf" || str == "nan")
+		return (true);
+	ss >> d;
+	if (ss.fail())
+		return (false);
+	return (true);
 }
 
 // TODO: if a conversion to char is not displayable, prints an informative message.
 void	ScalarConverter::convert( std::string const &str){
 	char	toChar;
-	int		toInt;
+//	int		toInt;
 //	float	toFloat;
 //	double	toDouble;
 
@@ -79,10 +114,25 @@ void	ScalarConverter::convert( std::string const &str){
 //	identify(str);
 //	toInt = std::atoi(str.c_str());
 //	std::cout << "int : " << toInt << std::endl;
-	if (isInt(str)){
+	if (isInt(str))
 		std::cout << "Valid int" << std::endl;
 	else
 		std::cout << "Wrong int" << std::endl;
+
+	if (isChar(str))
+		std::cout << "Valid char" << std::endl;
+	else
+		std::cout << "Wrong char" << std::endl;
+
+	if (isFloat(str))
+		std::cout << "Valid float" << std::endl;
+	else
+		std::cout << "Wrong float" << std::endl;
+
+	if (isDouble(str))
+		std::cout << "Valid double" << std::endl;
+	else
+		std::cout << "Wrong double" << std::endl;
 
 	if (isChar(str)){
 //		toChar = str[0];
