@@ -1,10 +1,11 @@
 ## REFERENCE
 
 [CPlusPlus](https://cplusplus.com/reference/iostream/) \
+[CppReference](https://en.cppreference.com/w/)
 
 ## EN +
 
-[Gerer le formatage du timestamp]([text](https://cplusplus.com/reference/iomanip/setfill/))
+[Gerer le formatage du timestamp](https://cplusplus.com/reference/iomanip/setfill/)
 
 ## OPERATORS OVERLOAD
 
