@@ -6,12 +6,13 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:53:58 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/11/01 19:13:39 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/11/04 00:01:18 by joyeux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <cstdlib>
+//#include <cctype>
 /*
 static void	identify(std::string const &str){
 	std::stringstream	ss(str);
@@ -69,7 +70,7 @@ static bool isInt(std::string const &str){
 static bool	isChar(std::string const &str){
 	if (str.empty())
 		return (false);
-	if (str.size() == 1 && (str.at(0) >= ' ' && str.at(0) <= '~'))
+	if (str.size() == 1 && isprint(str[0]) && !isdigit(str[0]))
 		return (1);
 	else
 		return (0);
@@ -152,6 +153,15 @@ static bool isDouble(std::string const &str){
 	return (true);
 }
 
+// Return 0 if not special, or 1 to 6 for ref in table(be careful 1..6, not 0..5)
+static int	isSpecial(std::string const &str, std::string const spec[]){
+	for (int i = 0; i < 6; i++){
+		if (str == spec[i])
+		       return (i + 1);	
+	}
+	return (0);
+}
+/*
 // TODO: if a conversion to char is not displayable, prints an informative message.
 void	ScalarConverter::convert( std::string const &str){
 	char	toChar;
@@ -165,26 +175,6 @@ void	ScalarConverter::convert( std::string const &str){
 //	identify(str);
 //	toInt = std::atoi(str.c_str());
 //	std::cout << "int : " << toInt << std::endl;
-/*	if (isInt(str))
-		std::cout << "Valid int" << std::endl;
-	else
-		std::cout << "Wrong int" << std::endl;
-
-	if (isChar(str))
-		std::cout << "Valid char" << std::endl;
-	else
-		std::cout << "Wrong char" << std::endl;
-
-	if (isFloat(str))
-		std::cout << "Valid float" << std::endl;
-	else
-		std::cout << "Wrong float" << std::endl;
-
-	if (isDouble(str))
-		std::cout << "Valid double" << std::endl;
-	else
-		std::cout << "Wrong double" << std::endl;
-*/
 	msg << "char: ";	
 	if (isInt(str)){
 		ss >> toInt;
@@ -214,12 +204,39 @@ void	ScalarConverter::convert( std::string const &str){
 		std::cout << "double : " << toDouble << std::endl;
 	}
 //	else //TODO : In case there 's no good cases
-/*	if (toChar >= ' ' && toChar <= '~')
-		std::cout << "char: " << toChar << std::endl;	
-	else
-		std::cout << "char*/
 	msg << std::endl;
 	std::cout << msg.str();
 	
+}
+*/
+
+void	ScalarConverter::convert( std::string const &str){
+	std::string	special[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+	int		isSpec;
+	std::string	toChar = "";
+	int		toInt;
+//	float		toFloat;
+//	double		toDouble;
+	
+	isSpec = isSpecial(str, special);
+/*	if (isSpec)
+		std::cout << "Special char : " << special[isSpec - 1] << std::endl;
+	else if (isChar(str))
+		std::cout << "Valid Char : " << str << std::endl;
+	else
+		std::cout << "not special" << std::endl;*/
+	if (isChar(str)){
+//		toChar = str[0];
+		std::cout << "char: '" << str[0] << "'" << std::endl;
+		std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
+		std::cout << "float: " << static_cast<float>(str[0]) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(str[0]) << ".0" << std::endl;
+		return ;
+	}
+	toInt = std::atoi(str.c_str());
+	std::cout << "int: " << toInt << std::endl;
+	if (str[str.size() - 1] == 'f')
+		std::cout << "float: " << str << std::endl;
+
 }
 
