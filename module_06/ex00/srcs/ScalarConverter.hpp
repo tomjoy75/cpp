@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:54:44 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/11/01 16:32:03 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/11/04 11:27:54 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define BOLD "\033[1m"
 # define ITALIC "\033[3m"
 # define BLINK "\e[5m"
+# define FLOATPRECISION 1
 
 class	ScalarConverter{
 

@@ -6,12 +6,13 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:53:58 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/11/04 00:01:18 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/11/04 16:50:30 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <cstdlib>
+#include <iomanip>
 //#include <cctype>
 /*
 static void	identify(std::string const &str){
@@ -213,30 +214,64 @@ void	ScalarConverter::convert( std::string const &str){
 void	ScalarConverter::convert( std::string const &str){
 	std::string	special[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
 	int		isSpec;
+	bool	intOverflow = false;
+	bool	floatOverflow = false;
 	std::string	toChar = "";
 	int		toInt;
-//	float		toFloat;
-//	double		toDouble;
+	float	toFloat;
+	double	toDouble;
 	
 	isSpec = isSpecial(str, special);
-/*	if (isSpec)
-		std::cout << "Special char : " << special[isSpec - 1] << std::endl;
-	else if (isChar(str))
-		std::cout << "Valid Char : " << str << std::endl;
-	else
-		std::cout << "not special" << std::endl;*/
+	// In case of char
 	if (isChar(str)){
-//		toChar = str[0];
+//		std::cout << "TEST : " << str << " is Char" << std::endl;
+//		std::cout << "TEST (float casting) : " << static_cast<float>(str[0]) << std::endl;
+		toInt =	static_cast<int>(str[0]);  	
 		std::cout << "char: '" << str[0] << "'" << std::endl;
-		std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
-		std::cout << "float: " << static_cast<float>(str[0]) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(str[0]) << ".0" << std::endl;
+		std::cout << "int: " << toInt << std::endl;
+		std::cout << "float: " << toInt << ".0f" << std::endl;
+		std::cout << "double: " << toInt << ".0" << std::endl;
 		return ;
 	}
+	// Change to int (if not char nor digit, toInt = 0) 
 	toInt = std::atoi(str.c_str());
-	std::cout << "int: " << toInt << std::endl;
-	if (str[str.size() - 1] == 'f')
-		std::cout << "float: " << str << std::endl;
-
+	toDouble = std::atof(str.c_str());
+	if (toDouble < std::numeric_limits<int>::min() || toDouble > std::numeric_limits<int>::max()){
+//		std::cout << "TEST" << std::endl;
+		intOverflow = true;
+	}
+	if (toDouble < -std::numeric_limits<float>::max() || toDouble > std::numeric_limits<float>::max())
+		floatOverflow = true;
+//	std::cout << "int: " << toInt << std::endl;
+	// For floating numbers, check if there's an 'f' and cast accordingly
+	if (str[str.size() - 1] == 'f'){
+		toFloat = std::atof(str.c_str());
+		toDouble = static_cast<double>(toFloat);
+	}
+	else { 
+		toDouble = std::atof(str.c_str());	
+		toFloat = static_cast<float>(toDouble);
+	}
+	if (isSpec)
+		toChar = "impossible";
+	else if (toInt >= ' ' && toInt <= '~'){
+		toChar += "'";
+		toChar += static_cast<char>(toInt);
+		toChar += "'";
+	}
+	else
+		toChar = "Non displayable";
+	std::cout << "char: " << toChar << std::endl;
+	if (isSpec)
+		std::cout << "int: impossible" << std::endl;
+	else if (intOverflow)
+		std::cout << "int: impossible (overflow)" << std::endl;
+	else 
+		std::cout << "int: " << toInt << std::endl;
+	if (floatOverflow)
+		std::cout << std::fixed << std::setprecision(FLOATPRECISION) << "float: impossible (overflow)"  << std::endl;
+	else
+		std::cout << "float: " << std::fixed << std::setprecision(FLOATPRECISION) << toFloat << "f" << std::endl;
+	std::cout << "double: " << toDouble << std::endl;
 }
 
