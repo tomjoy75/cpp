@@ -6,14 +6,13 @@
 #    By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/11/03 10:47:30 by joyeux           ###   ########.fr        #
+#    Updated: 2024/11/05 13:25:13 by tjoyeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= convert 
 CXX			= c++
-#CXXFLAGS		= -Wall -Werror -Wextra -std=c++98 -g3
-CXXFLAGS		= -Wall -Wextra -std=c++98 -g3
+CXXFLAGS		= -Wall -Werror -Wextra -std=c++98 -g3
 RM			= rm -f
 
 SRC_PATH	= ./srcs/
