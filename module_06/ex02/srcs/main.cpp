@@ -6,12 +6,12 @@
 /*   By: joyeux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 23:13:14 by joyeux            #+#    #+#             */
-/*   Updated: 2024/11/05 23:54:35 by joyeux           ###   ########.fr       */
+/*   Updated: 2024/11/06 10:03:42 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
-#include <exception>
+#include <stdexcept>
 
 Base	*generate(void){
 	Base	*p = NULL;
@@ -19,14 +19,22 @@ Base	*generate(void){
 
 	srand (time(NULL));
 	i = rand()%3;
-	if (i == 0)
+	if (i == 0){
 		p = new A;
-	else if (i == 1)
+		std::cout << "Generate A !" << std::endl;
+	}
+	else if (i == 1){
 		p = new B;
-	else if (i == 2)
+		std::cout << "Generate B !" << std::endl;
+	}
+	else if (i == 2){
 		p = new C;
-	else
-		std::cout << "Weird ..." << std::endl;
+		std::cout << "Generate C !" << std::endl;
+	}
+	else{
+		std::cout << RED << "Generation failed !" << RESET << std::endl;
+		return ( NULL );
+	}
 	return (p);
 }
 
@@ -51,18 +59,39 @@ void	identify(Base *p){
 void	identify(Base &p){
 	try{
 		Base	&a = dynamic_cast<A &>(p);
+		(void)a;
 	}
-	catch ( std::bad_cast &bc){
-		std::cout << "Not A" << std::endl;
+	catch ( std::exception e){
+		try{
+			Base	&b = dynamic_cast<B &>(p);
+			(void)b;
+		}
+		catch ( std::exception e){
+			try{
+				Base	&c = dynamic_cast<C &>(p);
+				(void)c;
+			}
+			catch( std::exception e){
+				std::cout << RED << "identification failed" << RESET << std::endl;
+				return;
+			}
+			std::cout << "This is C form" << std::endl;
+			return ;
+		}
+		std::cout << "This is B form" << std::endl;
+		return ;
 	}	
-	std::cout << "adress Base " << &a << std::endl;
+	std::cout << "This is A form" << std::endl;
 }
 
 int	main( void ){
-	
+	std::cout << BLUE << BOLD << "-----TESTING-----" << RESET << std::endl;	
+	std::cout << BLUE << ITALIC << "\tGenerate randomly a base (A, B or C)" << RESET << std::endl;
 	Base *p = generate();
-	std::cout << "adress is : " << p << std::endl;
+	std::cout << BLUE << ITALIC << "\tIdentify this Base by pointer" << RESET << std::endl;
 	identify(p);
+	std::cout << BLUE << ITALIC << "\tIdentify this Base by reference" << RESET << std::endl;
+	identify(*p);
 	delete (p);
 	return (0);
 }
