@@ -82,8 +82,11 @@ int	main(void){
 }
 ```
 possibility to integrate several types : `template< typename T, typename U>`
+
 # Default type
+
 *Files for class templates can be stocked with `.tpp` extension \
+`vertex.tpp`
 ```cpp
 template< typename T = float > //value by default (float)
 class Vertex {
@@ -105,7 +108,7 @@ private:
 	Vertex( void );				// Default constructor is private so You have to give parameters
 };
 
-template< typename T >
+template< typename T >			// Template of operator overload
 std::ostream	&operator<<( std::ostream &o, Vertex< T > const &v) {
 
 	std::cout.precision( 1 );
@@ -131,3 +134,7 @@ int	main( void ){
 
 	return 0;
 }
+```
+
+# Specialization
+
