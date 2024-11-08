@@ -82,7 +82,9 @@ int	main(void){
 }
 ```
 possibility to integrate several types : `template< typename T, typename U>`
+
 # Default type
+
 *Files for class templates can be stocked with `.tpp` extension \
 ```cpp
 template< typename T = float > //value by default (float)
@@ -131,3 +133,91 @@ int	main( void ){
 
 	return 0;
 }
+
+## Specialization
+
+```cpp
+#include <iostream>
+#include <iomanip>
+
+template <typename T, typename U>
+class Pair {
+
+public:
+
+    Pair<T, U>(T const & lhs, U const & rhs) : _lhs(lhs), _rhs(rhs) {
+        std::cout << "Generic template" << std::endl;
+        return;
+    }
+
+    ~Pair<T, U>(void) {}
+
+    T const & fst(void) const { return this->_lhs; }
+    U const & snd(void) const { return this->_rhs; }
+
+private:
+
+    T const & _lhs;
+    U const & _rhs;
+
+    Pair<T, U>(void);
+
+};
+```
+### partial specialization
+
+```cpp
+template <typename U>
+class Pair<int, U> {
+
+public:
+
+    Pair<int, U>(int lhs, U const & rhs) : _lhs(lhs), _rhs(rhs) {
+        std::cout << "Int partial specialization" << std::endl;
+        return;
+    }
+
+    ~Pair<int, U>(void) {}
+
+    int fst(void) const { return this->_lhs; }
+    U const & snd(void) const { return this->_rhs; }
+
+private:
+
+    int _lhs;
+    U const & _rhs;
+
+    Pair<int, U>(void);
+
+};
+```
+
+### complete specialization
+
+```cpp
+template<>
+class Pair<bool, bool> {
+
+public:
+
+    Pair<bool, bool>(bool lhs, bool rhs) {
+        std::cout << "Bool/bool specialization" << std::endl;
+        this->_n = 0;
+        this->_n |= static_cast<int>(lhs) << 0;
+        this->_n |= static_cast<int>(rhs) << 1;
+        return;
+    }
+
+    ~Pair<bool, bool>(void) {}
+
+    bool fst(void) const { return (this->_n & 0x01); }
+    bool snd(void) const { return (this->_n & 0x02); }
+
+private:
+
+    int _n;
+
+    Pair<bool, bool>(void);
+
+};
+```
