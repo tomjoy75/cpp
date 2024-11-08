@@ -134,7 +134,7 @@ int	main( void ){
 
 	return 0;
 }
-<<<<<<< HEAD
+```
 
 ## Specialization
 
@@ -180,6 +180,7 @@ public:
     }
 
     ~Pair<int, U>(void) {}
+}
 
     int fst(void) const { return this->_lhs; }
     U const & snd(void) const { return this->_rhs; }
@@ -223,9 +224,3 @@ private:
 
 };
 ```
-=======
-```
-
-# Specialization
-
->>>>>>> ad752474fae3cc2f7570a8d096168d777058b52e
