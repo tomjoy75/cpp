@@ -6,11 +6,11 @@
 #    By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 12:37:37 by tjoyeux           #+#    #+#              #
-#    Updated: 2024/11/05 13:25:13 by tjoyeux          ###   ########.fr        #
+#    Updated: 2024/11/10 12:14:06 by tjoyeux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= convert 
+NAME		= iter 
 CXX			= c++
 CXXFLAGS		= -Wall -Werror -Wextra -std=c++98 -g3
 RM			= rm -f
