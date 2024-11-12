@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 17:13:22 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/11/11 18:52:02 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:43:44 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,23 @@ public:
 	Array( unsigned int n ) : _n(n){
 		_tab = new T[n]();	
 	};
+
 	Array(Array const &src): _n(src._n){
-		this->_tab = new T[_n]();
-		for (int i = 0; i < _n; i++)
-//			this->_tab[i] = src.getElem(i);	
+		this->_tab = new T[_n];
+		for (unsigned int i = 0; i < _n; i++)
 			this->_tab[i] = src._tab[i];	
 	};
+
 	~Array( void ){
 		delete [](_tab);	
 	};
 
-	Array &operator=(Array const &rhs){
+	Array<T> const &operator=(Array<T> const &rhs){
 		if ( this != &rhs ){
 			delete [](this->_tab);
 			this->_n = rhs.size();
 			this->_tab = new T[this->_n];
-			for (int i = 0; i < this->_n; i++)
-	//			this->_tab[i] = rhs.getElem(i);	
+			for (unsigned int i = 0; i < this->_n; i++)
 				this->_tab[i] = rhs._tab[i];
 		}
 		return (*this);
@@ -64,16 +64,23 @@ public:
 
 	int	size( void ) const {return (_n);};
 
-//	T	&getElem( unsigned int i ) const {
-//		if (i >= this->_n )
-//			throw std::out_of_range("Out of range value");		
-//		return _tab[i];
-//	};
+	T	&getElem( unsigned int i ) const {
+		if (i >= this->_n )
+			throw std::out_of_range(RED"Out of range value"RESET);		
+		return _tab[i];
+	};
+
 	void	display(){
-		for (int i = 0; i < _n; i++){
+		for (unsigned int i = 0; i < _n; i++){
 			std::cout << "element " << i << " : " << _tab[i] << std::endl;
 		}
 	}
+	
+	void	setNewTab( T const &elem ){
+		for (unsigned int i = 0; i < _n; i++){
+			_tab[i] = elem;	
+		}
+	}	
 
 private:
 	T				*_tab;

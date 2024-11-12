@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 17:18:05 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/11/11 18:53:47 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:39:43 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,40 @@
 
 int	main( void ){
 
+	std::cout << BLUE << BOLD << "-----TESTS-----" << RESET << std::endl;
+	std::cout << BLUE << "\tDefault Constructor(empty)" << RESET << std::endl;
 	Array<int>	*empty = new Array<int>();
-	Array<int>	*param = new Array<int>(5);
-	int	i = 0;
-//	std::string * a = new std::string();
-//	std::cout << *a << std::endl;
-//	std::string * b = new std::string[2]();
-//	std::cout << b[1] << std::endl;
 	std::cout << "size : " << empty->size() << std::endl;
 	empty->display();
+	delete (empty);
+	
+	std::cout << BLUE << "\tParametric Constructor(int)" << RESET << std::endl;
+	Array<int>	*param = new Array<int>(5);
 	std::cout << "size : " << param->size() << std::endl;
 	param->display();
-	for (; i < 5 ; i++)
-		std::cout << "elem " << i + 1 << " : " << param->_tab[i] << std::endl;	
-	i++;
 	try{
-		std::cout << "elem " << i + 1 << " : " << param->_tab[i] << std::endl;	
+		std::cout << "element " << 42 << ": " << param->getElem(41) << std::endl;	
 	}
 	catch (std::out_of_range e){
 		std::cout << e.what() << std::endl;
 	}
-	delete (empty);
+	std::cout << BLUE << "\tCopy Constructor(int)" << RESET << std::endl;
+	Array<int>	paramCopy(*param);
+	paramCopy.display();	
+	std::cout << BLUE << "\tChange value of the copy" << RESET << std::endl;
+	paramCopy.setNewTab(42);
+	paramCopy.display();	
+	std::cout << BLUE << "\tDisplay value of the original(he shouldn't change)" << RESET << std::endl;
+	param->display();	
+	std::cout << BLUE << "\tOperator overload = (should come back to initial value)" << RESET << std::endl;
+	paramCopy = *param;
+	paramCopy.display();
 	delete (param);
+//	delete (paramCopy);
+	std::cout << BLUE << "\tParametric Constructor(string)" << RESET << std::endl;
+	Array<std::string>	*strArray = new Array<std::string>(4);
+	std::cout << "size : " << strArray->size() << std::endl;
+	strArray->display();
+	delete (strArray);
 	return ( 0 );
 }
