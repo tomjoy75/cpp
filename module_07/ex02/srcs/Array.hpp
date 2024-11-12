@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 17:13:22 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/11/12 13:43:44 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/11/12 14:31:54 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,61 +30,24 @@ template <typename T>
 class	Array{
 
 public:
-	Array( void ) : _tab(NULL), _n(0){};
-	Array( unsigned int n ) : _n(n){
-		_tab = new T[n]();	
-	};
+	Array( void );
+	Array( unsigned int n );
+	Array(Array const &src);
 
-	Array(Array const &src): _n(src._n){
-		this->_tab = new T[_n];
-		for (unsigned int i = 0; i < _n; i++)
-			this->_tab[i] = src._tab[i];	
-	};
+	~Array( void );
 
-	~Array( void ){
-		delete [](_tab);	
-	};
+	Array<T> const &operator=(Array<T> const &rhs);
+	T const &operator[]( int idx) const;
 
-	Array<T> const &operator=(Array<T> const &rhs){
-		if ( this != &rhs ){
-			delete [](this->_tab);
-			this->_n = rhs.size();
-			this->_tab = new T[this->_n];
-			for (unsigned int i = 0; i < this->_n; i++)
-				this->_tab[i] = rhs._tab[i];
-		}
-		return (*this);
-	}
-
-	T const &operator[]( int idx) const{
-		if (idx >= static_cast<int>(_n) || idx < 0)
-			throw std::out_of_range("Out of range value");
-		return (_tab[idx]);
-	};
-
-	int	size( void ) const {return (_n);};
-
-	T	&getElem( unsigned int i ) const {
-		if (i >= this->_n )
-			throw std::out_of_range(RED"Out of range value"RESET);		
-		return _tab[i];
-	};
-
-	void	display(){
-		for (unsigned int i = 0; i < _n; i++){
-			std::cout << "element " << i << " : " << _tab[i] << std::endl;
-		}
-	}
-	
-	void	setNewTab( T const &elem ){
-		for (unsigned int i = 0; i < _n; i++){
-			_tab[i] = elem;	
-		}
-	}	
+	int	size( void ) const;
+	T	&getElem( unsigned int i ) const;
+	void	display();
+	void	setNewTab( T const &elem );	
 
 private:
 	T				*_tab;
 	unsigned int	_n;
 };
 
+# include "Array.tpp"
 #endif
