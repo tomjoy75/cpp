@@ -45,7 +45,7 @@ Array<T> const &Array<T>::operator=(Array<T> const &rhs){
 }
 
 template <typename T>
-T const &Array<T>::operator[]( int idx) const{
+T &Array<T>::operator[]( int idx) const{
 	if (idx >= static_cast<int>(_n) || idx < 0)
 		throw std::out_of_range("Out of range value");
 	return (_tab[idx]);

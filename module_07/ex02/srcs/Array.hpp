@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 17:13:22 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/11/12 14:31:54 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/11/12 17:12:19 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
+# include <cstdlib>
+# include <ctime>
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
 # define BLUE "\033[0;34m"
-# define MAGENTA "\033[0;35m"
+# define  "\033[0;35m"
 # define RESET "\033[0m"
-# define BOLD "\033[1m"
+# define  "\033[1m"
 # define ITALIC "\033[3m"
 # define BLINK "\e[5m"
 
@@ -37,7 +39,7 @@ public:
 	~Array( void );
 
 	Array<T> const &operator=(Array<T> const &rhs);
-	T const &operator[]( int idx) const;
+	T  &operator[]( int idx) const;
 
 	int	size( void ) const;
 	T	&getElem( unsigned int i ) const;

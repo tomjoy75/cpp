@@ -1,53 +1,53 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 17:18:05 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/11/12 13:39:43 by tjoyeux          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#include <iostream>
 #include "Array.hpp"
 
-int	main( void ){
+#define MAX_VAL 750
+int main(int, char**)
+{
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-	std::cout << BLUE << BOLD << "-----TESTS-----" << RESET << std::endl;
-	std::cout << BLUE << "\tDefault Constructor(empty)" << RESET << std::endl;
-	Array<int>	*empty = new Array<int>();
-	std::cout << "size : " << empty->size() << std::endl;
-	empty->display();
-	delete (empty);
-	
-	std::cout << BLUE << "\tParametric Constructor(int)" << RESET << std::endl;
-	Array<int>	*param = new Array<int>(5);
-	std::cout << "size : " << param->size() << std::endl;
-	param->display();
-	try{
-		std::cout << "element " << 42 << ": " << param->getElem(41) << std::endl;	
-	}
-	catch (std::out_of_range e){
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << BLUE << "\tCopy Constructor(int)" << RESET << std::endl;
-	Array<int>	paramCopy(*param);
-	paramCopy.display();	
-	std::cout << BLUE << "\tChange value of the copy" << RESET << std::endl;
-	paramCopy.setNewTab(42);
-	paramCopy.display();	
-	std::cout << BLUE << "\tDisplay value of the original(he shouldn't change)" << RESET << std::endl;
-	param->display();	
-	std::cout << BLUE << "\tOperator overload = (should come back to initial value)" << RESET << std::endl;
-	paramCopy = *param;
-	paramCopy.display();
-	delete (param);
-//	delete (paramCopy);
-	std::cout << BLUE << "\tParametric Constructor(string)" << RESET << std::endl;
-	Array<std::string>	*strArray = new Array<std::string>(4);
-	std::cout << "size : " << strArray->size() << std::endl;
-	strArray->display();
-	delete (strArray);
-	return ( 0 );
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
 }
