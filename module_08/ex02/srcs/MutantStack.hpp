@@ -6,7 +6,7 @@
 /*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 10:18:22 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/01 18:48:32 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/02 00:51:24 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <deque>
+# include <stack>
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
@@ -26,13 +27,17 @@
 # define BLINK "\e[5m"
 
 template <typename T>
-class	MutantStack{
+class	MutantStack: public std::stack<T>{
 public:
+
+	typedef typename std::deque<T>::iterator iterator;
 
 	void	push(T var){this->_data.push_front(var);};
 	void	pop( void ){this->_data.pop_front();};
 	T	top( void ){return (this->_data.front());};
 	int	size( void ){return (this->_data.size());};
+	iterator	begin(){return (_data.begin());};
+	iterator	end(){return (_data.end());};
 private:
 	std::deque<T>	_data;
 };
