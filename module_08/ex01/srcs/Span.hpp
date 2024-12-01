@@ -16,6 +16,9 @@
 # include <iostream>
 # include <algorithm>
 # include <set>
+# include <stdexcept>
+# include <cstdlib>
+# include <ctime>
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
@@ -30,10 +33,20 @@ class	Span {
 public:
 	Span( void );
 	Span( unsigned int N );
+	Span( Span const &src );
+	~Span( void );
+
+	Span	&operator=(Span const &rhs);
 
 	void 		addNumber( int N );
+	void		fillRandNumbers();
 	unsigned int	shortestSpan( void );
 	unsigned int	longestSpan( void );
+
+	std::multiset<int> const	&getData() const;
+	int	const			&getN() const;
+
+	static void		showActualSize(std::multiset<int> set);
 
 private:
 	int			_n;

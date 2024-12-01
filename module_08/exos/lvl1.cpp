@@ -31,8 +31,10 @@ Niveau 1 : Découverte des conteneurs et itérateurs
 */
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
+#include <list>
 
 int	myfunc( int a, int b ){
 //	std::cout << "sort : a = " << a << " b = " << b << " a > b ? " << (a > b) << std::endl; 
@@ -48,7 +50,24 @@ void	show( std::vector<int> vec ){
 	std::cout << "----------" << std::endl;
 }
 
+void	displayString( std::string const &word ){
+	std::cout << ".." << word << ".." ;
+}
+
+void	displayStringIterator( std::list<std::string> const &words){
+	std::list<std::string>::const_iterator it = words.begin();
+	for (; it != words.end(); it++){
+		std::cout << ".." << *it << "..";
+	}
+	std::cout << std::endl;
+}
+
+bool	bigWord(std::string const &word){
+	return (word.size() < 4);
+}
+
 int	main( void ){
+{
 	std::vector<int>	vec;
 	std::vector<int>::const_iterator	vec_it;
 
@@ -69,7 +88,20 @@ int	main( void ){
 	std::cout << "AFTER INSIDE SORTING" << std::endl;
 	std::sort(vec.begin() + 2, vec.end() - 2 );
 	show( vec );
+}
+{
+	std::string const				words[] = {"Thomas", "Nathalie", "No", "Elsa"};
+	std::list<std::string>	wordSet(words, words + 4);
+//	std::list<string>::const_iterator	wordSetIt;	
 
+	for_each(wordSet.begin(), wordSet.end(), displayString);
+	std::cout << std::endl;
+	displayStringIterator(wordSet);
+	std::cout << std::endl;
+//	bigWords(wordSet);
+	wordSet.remove_if(bigWord);
+	displayStringIterator(wordSet);
+}
 	return (0);
 }	
 
