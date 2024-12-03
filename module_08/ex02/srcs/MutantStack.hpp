@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 10:18:22 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/02 15:41:52 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/03 09:43:13 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <deque>
 # include <stack>
+# include <stdexcept>
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
@@ -59,13 +60,17 @@ public:
 		else
 			std::cerr << RED << "pop not usable : Empty container" << RESET << std::endl;
 	};
-	T	top( void ){return (this->_data.front());};
-	int	size( void ){return (this->_data.size());};
+	T	&top( void ){
+		if (this->_data.empty())
+			throw std::logic_error("top inaccessible : Empty container"); 
+		return (this->_data.front());
+	};
+	int		size( void ){return (this->_data.size());};
 	bool	empty( ){return (this->_data.empty());};
-//	void	emplace( T var ){this->_data.push_front(var);};
 	void	swap(MutantStack<T> &rhs){
 		if (this != &rhs)
-			this->_data.swap(rhs.getSetData());};
+			this->_data.swap(rhs.getSetData());
+	};
 	void	showData( void ) const{
 		for (typename std::deque<T>::const_iterator it = this->_data.begin(); it != this->_data.end(); it++)
 			std::cout << "\tdata : " << *it << std::endl;

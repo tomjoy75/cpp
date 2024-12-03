@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:14:50 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/02 15:44:32 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/03 09:44:06 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ int main(){
 	myStack.push(3);
 
 	myStack.push(42);
-//	std::cout << "first value : " << *myStack.begin() << std::endl; 
-//	std::cout << "last value : " << *(myStack.end() - 1) << std::endl; 
 	std::cout << BLUE << "Before Swapping" << RESET << std::endl;
 	std::cout << BLUE << ITALIC << "\tContent of my stack" << RESET << std::endl;
 	myStack.showData();
@@ -61,8 +59,6 @@ int main(){
 	mstack.showData();
 	myStack.swap(mstack);
 	std::cout << BLUE << "After Swapping" << RESET << std::endl;
-//	std::cout << "first value : " << *myStack.begin() << std::endl; 
-//	std::cout << "last value : " << *(myStack.end() - 1) << std::endl; 
 	std::cout << BLUE << ITALIC << "\tContent of my stack" << RESET << std::endl;
 	myStack.showData();
 	std::cout << BLUE << ITALIC << "\tContent of original stack" << RESET << std::endl;
@@ -94,6 +90,11 @@ int main(){
 	if (newStack.empty())
 		std::cout << "NewStack is empty" << std::endl;
 	newStack.pop();
-	std::cout << newStack.top() << std::endl;
+	try{
+		std::cout << newStack.top() << std::endl;
+	}
+	catch (std::logic_error &e){
+		std::cerr << RED << e.what() << RESET << std::endl;
+	}
 	return 0;
 }
