@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:17:45 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/04 15:05:36 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/04 16:55:27 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ int	main(int argc, char **argv){
 		data.append(line);
 	}
 	ifs.close();
-	data.showData();
+//	data.showData();
+	ifs.open(argv[1], std::ifstream::in);
+	if (ifs.fail() || !ifs.is_open()){
+		std::cerr << RED << "Error: could not open file." << RESET << std::endl;
+		return (1);
+	}
+	while ( std::getline(ifs, line) ){
+		std::stringstream	ss(line);
+		std::string			date;
+	//	std::cout << line << std::endl;
+	//	if ()
+
+		std.getline(ss, date, '|' );
+	}
+	
+	ifs.close();
 	return (0);
 }
