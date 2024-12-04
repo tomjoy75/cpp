@@ -23,7 +23,7 @@
 | [module_06](./module_06/)                | Casts                                                   |
 | [module_07](./module_07/)                | Templates                                               |
 | [module_08](./module_08/)                | Standard Template Library (STL)                         |
-
+| [tips n tricks](./doc/tips.md)           | Tip's and tricks                                        |
 ---
 
 ## 🌐 General Concepts
