@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:55:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/03 17:08:18 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/04 15:02:05 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 # include <iostream>
 # include <map>
+# include <fstream>
+# include <sstream>
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
@@ -23,4 +25,13 @@
 # define BOLD "\033[1m"
 # define ITALIC "\033[3m"
 # define BLINK "\e[5m"
+# define DB "./files/data.csv"
 
+class	BitcoinExchange{
+private:
+	std::map<std::string, float>	_data;
+public:
+
+	void	append(std::string line);
+	void	showData( void );
+};
