@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:17:45 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/05 18:10:03 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/05 19:00:37 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ bool	validDate(std::string date){
 	// std::cout << "\t sep1 = " << sep1 << std::endl;
 	// std::cout << "\t sep2 = " << sep2 << std::endl;
 	if (sep1 != '-' || sep2 != '-')
+		return false;
+	if (year < BASE_YEAR)
 		return false;
 	if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0 ))
 		leapYear = 1;
@@ -106,8 +108,9 @@ int	main(int argc, char **argv){
 			std::cerr << RED << "Error: not a valid date." << RESET << std::endl;
 			continue;
 		}
+		std::cout << "Date : " << key << ", nb of days from 1970 : " << BitcoinExchange::convertDate(key) << std::endl;
 
-		std::cout << "date : '" << key << "'...sep : '" << sep << "' flux restant : '" << ss.str() << "'...amount : '" << value << "'" << std::endl;
+//		std::cout << "date : '" << key << "'...sep : '" << sep << "' flux restant : '" << ss.str() << "'...amount : '" << value << "'" << std::endl;
 	}
 	
 	ifs.close();

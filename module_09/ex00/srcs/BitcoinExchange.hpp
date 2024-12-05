@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:55:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/04 15:02:05 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/05 19:01:26 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define ITALIC "\033[3m"
 # define BLINK "\e[5m"
 # define DB "./files/data.csv"
+# define BASE_YEAR 1970
 
 class	BitcoinExchange{
 private:
@@ -34,4 +35,5 @@ public:
 
 	void	append(std::string line);
 	void	showData( void );
+	static long	convertDate( std::string const date);
 };
