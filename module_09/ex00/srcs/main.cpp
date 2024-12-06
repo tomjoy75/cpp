@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:17:45 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/06 18:19:58 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/06 19:04:39 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,12 @@ bool	validDate(std::string date){
 	ss >> year >> sep1 >> month >> sep2 >> day;
 	if ( ss.fail() || !ss.eof() )
 		return false;
-	// std::cout << "\t year = " << year << std::endl;
-	// std::cout << "\t month = " << month << std::endl;
-	// std::cout << "\t day = " << day << std::endl;
-	// std::cout << "\t sep1 = " << sep1 << std::endl;
-	// std::cout << "\t sep2 = " << sep2 << std::endl;
 	if (sep1 != '-' || sep2 != '-')
 		return false;
 	if (year < BASE_YEAR)
 		return false;
 	if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0 ))
 		leapYear = 1;
-	// std::cout << "\t leap = " << leapYear << std::endl;
 	if (month < 1 || month > 12)
 		return false;
 	if (leapYear && month == 2){
@@ -59,8 +53,6 @@ int	main(int argc, char **argv){
 	std::ifstream	ifs;
 	std::string		line;
 	BitcoinExchange	data;
-//	std::string		date;
-//	float			value;
 	
 	ifs.open(DB, std::ifstream::in);
 	if (ifs.fail()){
@@ -68,8 +60,6 @@ int	main(int argc, char **argv){
 		return (1);
 	}
 	while ( std::getline(ifs, line) ){
-//		std::stringstream	parse( line );
-//		parse >> date >> "," >> value;
 		data.append(line);
 	}
 	ifs.close();
@@ -82,13 +72,12 @@ int	main(int argc, char **argv){
 	while ( std::getline(ifs, line) ){
 		std::stringstream	ss(line);
 		std::string			key;
+//		std::string			dbKey;
 		char				sep;
 		float				value;
+		float				dbValue;
 		size_t				pos;
-	//	std::cout << line << std::endl;
-	//	if ()
-
-	//	std.getline(ss, date, '|' );
+		
 		if ((pos = line.find('|')) == std::string::npos){
 			std::cerr << RED << "Error: bad input => " << line.c_str() << RESET << std::endl;
 			continue;
@@ -108,20 +97,15 @@ int	main(int argc, char **argv){
 			std::cerr << RED << "Error: not a valid date." << RESET << std::endl;
 			continue;
 		}
-		// std::map<std::string, float>::iterator	it;
-		// it = std::lower_bound(data.begin(), data.end(), key);
-		// it = 
 		try{
-			std::cout << "prev or equal date: " << data.findCorrectDate(key) << " for the date " << key << std::endl; 
-			std::cout << "value for this date: " << data.findCorrectValue(key) << " for the date " << key << std::endl; 
+//			dbKey = data.findCorrectDate(key);
+			dbValue = data.findCorrectValue(key);
 		}
 		catch (std::out_of_range &e){
 			std::cerr << RED << e.what() << RESET << std::endl;
 			continue;
 		}
-//		std::cout << "Date : " << key << ", nb of days from 1970 : " << BitcoinExchange::convertDate(key) << std::endl;
-
-//		std::cout << "date : '" << key << "'...sep : '" << sep << "' flux restant : '" << ss.str() << "'...amount : '" << value << "'" << std::endl;
+		std::cout << key << " => " << value << " = " << dbValue * value << std::endl;
 	}
 	
 	ifs.close();
