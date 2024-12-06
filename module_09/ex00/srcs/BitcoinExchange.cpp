@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:05:50 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/06 16:08:21 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/06 18:16:01 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ std::map<std::string, float>::iterator BitcoinExchange::end( void ) {return( thi
 std::string	const	BitcoinExchange::findCorrectDate( std::string const date) const {
 	std::map<std::string, float>::const_iterator	it;
 	it = _data.lower_bound(date);
+	if (date != it->first && it == _data.begin())
+		throw std::out_of_range("Error : Out of range");
 	if (date != it->first)
 		it--;
 	return( it->first );
@@ -75,7 +77,9 @@ std::string	const	BitcoinExchange::findCorrectDate( std::string const date) cons
 float		BitcoinExchange::findCorrectValue( std::string const date) const {
 	std::map<std::string, float>::const_iterator	it;
 	it = _data.lower_bound(date);
-	if (date != it->first)
+	if (date != it->first && it == _data.begin())
+		throw std::out_of_range("Error : Out of range");
+	else if (date != it->first)
 		it--;
 	return( it->second );
 }

@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:55:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/06 16:07:19 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/06 18:09:34 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fstream>
 # include <sstream>
 # include <algorithm>
+# include <stdexcept>
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
