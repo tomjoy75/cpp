@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:55:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/05 19:01:26 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/06 16:07:19 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <map>
 # include <fstream>
 # include <sstream>
+# include <algorithm>
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
@@ -33,7 +34,11 @@ private:
 	std::map<std::string, float>	_data;
 public:
 
-	void	append(std::string line);
-	void	showData( void );
-	static long	convertDate( std::string const date);
+	void				append(std::string line);
+	void				showData( void );
+	static long			convertDate( std::string const date);
+	std::map<std::string, float>::iterator begin( void ) ;
+	std::map<std::string, float>::iterator end( void ) ;
+	std::string	const	findCorrectDate( std::string const date ) const;
+	float				findCorrectValue( std::string const date ) const;
 };

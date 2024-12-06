@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:17:45 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/05 19:00:37 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/06 16:09:46 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,12 @@ int	main(int argc, char **argv){
 			std::cerr << RED << "Error: not a valid date." << RESET << std::endl;
 			continue;
 		}
-		std::cout << "Date : " << key << ", nb of days from 1970 : " << BitcoinExchange::convertDate(key) << std::endl;
+		// std::map<std::string, float>::iterator	it;
+		// it = std::lower_bound(data.begin(), data.end(), key);
+		// it = 
+		std::cout << "prev or equal date: " << data.findCorrectDate(key) << " for the date " << key << std::endl; 
+		std::cout << "value for this date: " << data.findCorrectValue(key) << " for the date " << key << std::endl; 
+//		std::cout << "Date : " << key << ", nb of days from 1970 : " << BitcoinExchange::convertDate(key) << std::endl;
 
 //		std::cout << "date : '" << key << "'...sep : '" << sep << "' flux restant : '" << ss.str() << "'...amount : '" << value << "'" << std::endl;
 	}
