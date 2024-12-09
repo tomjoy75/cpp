@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:55:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/09 00:37:31 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/09 11:17:31 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ enum	Operator{
 
 class	RPN: public std::stack<int> {
 public:
+	RPN( void );
+	RPN( RPN const &src);
+	~RPN( void );
+	RPN	&operator=( RPN const &src );
+
 	void	showStack( void ) ;
 	void	operation( char const c );
 	void	add( void );
@@ -43,3 +48,6 @@ public:
 	void	mult( void );
 	void	div( void );	
 };
+
+std::ostream	&operator<<( std::ostream &o, RPN const &rhs);
+int		process( std::string const &str );
