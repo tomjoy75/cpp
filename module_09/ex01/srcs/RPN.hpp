@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:55:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/09 11:17:31 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/09 13:59:24 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,4 @@ public:
 };
 
 std::ostream	&operator<<( std::ostream &o, RPN const &rhs);
-int		process( std::string const &str );
+int		process( std::string const &str, std::string &output );

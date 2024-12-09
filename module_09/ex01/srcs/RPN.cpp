@@ -6,7 +6,7 @@
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:05:50 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/09 13:27:54 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/09 14:47:09 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,18 @@ void	RPN::showStack( void ) {
 }
 
 void	RPN::add( void ){
+	if (this->size() < 2)
+		throw std::invalid_argument("Error : Wrong expression");
 	int	rhs = this->top();
 	this->pop();
 	int	lhs = this->top();
 	this->pop();
 	this->push( rhs + lhs ); 
-//	return ( rhs + this->top() );
 }
 
 void	RPN::sub( void ){
+	if (this->size() < 2)
+		throw std::invalid_argument("Error : Wrong expression");
 	int	rhs = this->top();
 	this->pop();
 	int	lhs = this->top();
@@ -51,6 +54,8 @@ void	RPN::sub( void ){
 }
 
 void	RPN::mult( void ){
+	if (this->size() < 2)
+		throw std::invalid_argument("Error : Wrong expression");
 	int	rhs = this->top();
 	this->pop();
 	int	lhs = this->top();
@@ -58,8 +63,9 @@ void	RPN::mult( void ){
 	this->push( lhs * rhs ); 
 }
 
-// Check division by zero
 void	RPN::div( void ){
+	if (this->size() < 2)
+		throw std::invalid_argument("Error : Wrong expression");
 	int	rhs = this->top();
 	this->pop();
 	int	lhs = this->top();
@@ -90,7 +96,6 @@ void	RPN::operation( char const c ){
 
 std::ostream	&operator<<( std::ostream &o, RPN const &rhs){
 	o << rhs.top();
-	std::cout << "TEST << : " << rhs.top() << std::endl;
 	return( o );
 }
 
@@ -102,7 +107,7 @@ static bool	isWhitespace(char c){
 	return ((c >= 9 && c <= 13) || c == ' ');
 }
 
-int		process( std::string const &str ){
+int		process( std::string const &str, std::string &output ){
 	RPN		digits;
 	
 	for ( std::string::const_iterator it = str.begin(); it != str.end(); it++ ){
@@ -117,22 +122,23 @@ int		process( std::string const &str ){
 				digits.operation(*it);
 			}
 			catch(std::invalid_argument &e){
-				std::cerr << RED << e.what() << RESET << std::endl;
+				output = e.what();
 				return (1);
 			}
 			catch(std::logic_error &e){
-				std::cerr << RED << e.what() << RESET << std::endl;
+				output = e.what();
 				return (1);
 			}
 			
 		}
-		//	std::cout << "Number : " << *it << std::endl;
 	}
 	if ( digits.size() == 1 ){
-		std::cout << digits << std::endl;
+		std::stringstream	ss;
+		ss << digits;
+		output = ss.str();
 		return (0);
 	}
 	else 
-		std::cerr << RED << "Error : Wrong expression" << RESET << std::endl;
+		output = "Error : Wrong expression"; 
 	return (1);
 }
