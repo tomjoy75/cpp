@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:55:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/09 13:59:24 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/12 16:48:56 by tjoyeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 # include <iostream>
-# include <stack>
+# include <vector>
+# include <list>
 # include <sstream>
 # include <algorithm>
 # include <stdexcept>
@@ -27,27 +28,4 @@
 # define ITALIC "\033[3m"
 # define BLINK "\e[5m"
 
-enum	Operator{
-	ADD = '+',
-	SUB = '-',
-	MULT = '*',
-	DIV = '/'
-};
-
-class	RPN: public std::stack<int> {
-public:
-	RPN( void );
-	RPN( RPN const &src);
-	~RPN( void );
-	RPN	&operator=( RPN const &src );
-
-	void	showStack( void ) ;
-	void	operation( char const c );
-	void	add( void );
-	void	sub( void );
-	void	mult( void );
-	void	div( void );	
-};
-
-std::ostream	&operator<<( std::ostream &o, RPN const &rhs);
-int		process( std::string const &str, std::string &output );
+//std::ostream	&operator<<( std::ostream &o, RPN const &rhs);
