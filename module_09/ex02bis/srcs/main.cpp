@@ -25,8 +25,8 @@ int	main(int argc, char **argv){
 */
 
 int	main( void ){
-	int	myints[] = { 5, 4, 3, 2, 1};
-	std::vector<int>	vec(myints, myints + 5);
+	int	myints[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1};
+	std::vector<int>	vec(myints, myints + 9);
 	sort(vec.begin(), vec.end());
 
 	return (0);

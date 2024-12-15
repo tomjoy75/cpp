@@ -117,3 +117,5 @@ template<typename Iterator>
 void    sort(Iterator first, Iterator last){
     mergeInsertion(makeGroup(first, 1), makeGroup(last, 1));
 }
+
+// TODO: Implement a verification of siblings (double numbers)
