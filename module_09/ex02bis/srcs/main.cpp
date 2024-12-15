@@ -27,7 +27,7 @@ int	main(int argc, char **argv){
 int	main( void ){
 	int	myints[] = { 5, 4, 3, 2, 1};
 	std::vector<int>	vec(myints, myints + 5);
-	merge_insertion_sort_impl(vec.begin(), vec.end(), std::less<int>());
+	sort(vec.begin(), vec.end());
 
 	return (0);
 }

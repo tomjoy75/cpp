@@ -12,3 +12,37 @@
 
 #include "PmergeMe.hpp"
 
+//Operators of incrementation
+// template<typename Iterator>
+// Group<Iterator>   &Group<Iterator>::operator++(){
+//     this->_it++;
+//     return (*this);
+// }
+
+// template<typename Iterator>
+// Group<Iterator>   Group<Iterator>::operator++(int){
+//     Group   old = *this;
+//     this->_it++;
+//     return (old);
+// }
+
+// template<typename Iterator>
+// Group<Iterator>   &Group<Iterator>::operator--(){
+//     this->_it--;
+//     return (*this);
+// }
+
+// template<typename Iterator>
+// Group<Iterator>   Group<Iterator>::operator--(int){
+//     Group   old = *this;
+//     this->_it--;
+//     return (old);
+// }
+
+// template<typename Iterator>
+// std::size_t Group<Iterator>::distance( Group<Iterator> last ){
+//     std::size_t i = 0;
+//     for (; this->_it + i != last.getIt() ; i++){
+//     }
+//     return (i);
+// } 
