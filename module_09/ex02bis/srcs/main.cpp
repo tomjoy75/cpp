@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tomjoy75 <tomjoy75@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:17:45 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/12 16:56:30 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/16 18:59:00 by tomjoy75         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	main(int argc, char **argv){
 */
 
 int	main( void ){
-	int	myints[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1};
-	std::vector<int>	vec(myints, myints + 9);
+	int	myints[] = { 7, 6, 5, 4, 3, 2, 1};
+	std::vector<int>	vec(myints, myints + 7);
 	sort(vec.begin(), vec.end());
 
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjoyeux <tjoyeux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tomjoy75 <tomjoy75@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:55:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/12 16:48:56 by tjoyeux          ###   ########.fr       */
+/*   Updated: 2024/12/17 00:26:31 by tomjoy75         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,18 @@ public:
 //Operators of incrementation
 //    Group   &operator++();
     Group   operator++(int){
+        Group   old = *this;
         this->_it += this->_size;
-        return ( *this );
+        return ( old );
     };
 //    Group   &operator--();
     Group   operator--(int){
         Group   old = *this;
-        this->_it--;
+        this->_it -= this->_size;
         return (old);
-    }
+    };
+//Operators of comparison
+    bool operator>(Group const &rhs) const{ return(*this->_it > *rhs.getIt());};
 
     Iterator const  getIt( void ) const{ return (_it); };
     
@@ -95,6 +98,24 @@ void    printGroup(Iterator first, Iterator last){
 }
 
 template<typename Iterator>
+void    swapGroup(Iterator first, Iterator last){
+    int maxA = first.getSize() - 1;
+    int maxB = maxA + first.getSize();
+    std::cout << "maxA = " << maxA << "maxB = " << maxB << std::endl;
+    while (first.getIt() != last.getIt()){
+        if ( *(first.getIt() + maxA) > *(first.getIt() + maxB)){
+            for ( int i = 0; i <= maxA; i++ ){
+                int tmp = *(first.getIt() + i);
+                *(first.getIt() + i) = *(first.getIt() + first.getSize() + i);
+                *(first.getIt() + first.getSize() + i) = tmp;
+            }
+        }
+        first++;
+        first++;
+    }
+}
+
+template<typename Iterator>
 void    mergeInsertion(Iterator first, Iterator last){
 // Gestion of odd numbers
     std::size_t size = first.distance(last);
@@ -108,7 +129,16 @@ void    mergeInsertion(Iterator first, Iterator last){
     printGroup(first, end);
     if ( size%2 )
         end--;
+    printGroup(first, end);
     std::cout << "\tNew distance is : " << first.distance(end) << std::endl;
+    // TODO: while first != second
+    // if biggest is second => swap  : Operator overload > 
+    // if (first > first + first.getSize())
+    //     std::cout << "\t" << *(first.getIt()) << " is bigger than " << *(last.getIt()) << std::endl;
+    // first += 2 * size
+    swapGroup(first, end);
+    printGroup(first, last);
+//    printGroup(first, end);
     mergeInsertion(makeGroup(first.getIt(), 2 * first.getSize()), makeGroup(end.getIt(), 2 * first.getSize()));
 //    mergeInsertion(makeGroup(first.getIt(), 2 ), makeGroup(end.getIt(), 2 ));
 }
@@ -116,6 +146,9 @@ void    mergeInsertion(Iterator first, Iterator last){
 template<typename Iterator>
 void    sort(Iterator first, Iterator last){
     mergeInsertion(makeGroup(first, 1), makeGroup(last, 1));
+    for (; first < last; first++)
+        std::cout << "\"" << *first << "\"" ;
+    std::cout << std::endl;
 }
 
 // TODO: Implement a verification of siblings (double numbers)
