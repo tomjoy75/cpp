@@ -52,6 +52,8 @@ public:
 //Operators of comparison
     bool operator>(Group const &rhs) const{ return(*this->_it > *rhs.getIt());};
 
+    typedef Iterator    GroupIterator;
+
     Iterator const  getIt( void ) const{ return (_it); };
     
     std::size_t     getSize( void ) const{ return (_size); };
@@ -116,12 +118,41 @@ void    swapGroup(Iterator first, Iterator last){
 }
 
 template<typename Iterator>
+void insertGroup(Iterator first, std::size_t size) {
+    typedef typename std::iterator_traits<typename Iterator::GroupIterator>::value_type ValueType;
+
+    std::vector<ValueType> sortedSeries;
+
+    sortedSeries.push_back(*(first.getIt()));
+
+    for (std::size_t i = 1; i < size; i += 2) {
+        ValueType smaller = *(first.getIt() + i - 1); // Premier élément de la paire
+        ValueType larger = *(first.getIt() + i);     // Second élément de la paire
+
+        if (smaller > larger)
+            std::swap(smaller, larger);
+
+        typename std::vector<ValueType>::iterator pos =
+            std::lower_bound(sortedSeries.begin(), sortedSeries.end(), larger);
+
+        sortedSeries.insert(pos, smaller);
+    }
+
+    for (std::size_t i = 0; i < sortedSeries.size(); ++i) {
+        *(first.getIt() + i) = sortedSeries[i];
+    }
+}
+
+
+
+template<typename Iterator>
 void    mergeInsertion(Iterator first, Iterator last){
 // Gestion of odd numbers
     std::size_t size = first.distance(last);
     std::cout << "___Merge Insertion___" << std::endl;
     std::cout << "\tDistance between iterators is : " << size << std::endl;
     if (size <= 1 ){
+        printGroup(first, last);
         std::cout << "___Out of Merge Insertion (highest)___" << std::endl;
         return;
     }
@@ -141,6 +172,10 @@ void    mergeInsertion(Iterator first, Iterator last){
 //    printGroup(first, end);
     mergeInsertion(makeGroup(first.getIt(), 2 * first.getSize()), makeGroup(end.getIt(), 2 * first.getSize()));
 //    mergeInsertion(makeGroup(first.getIt(), 2 ), makeGroup(end.getIt(), 2 ));
+    printGroup(first, last);
+    insertGroup(first, size);
+    std::cout << "\tAfter insertion" << std::endl;
+    printGroup(first, last);
 }
 
 template<typename Iterator>
