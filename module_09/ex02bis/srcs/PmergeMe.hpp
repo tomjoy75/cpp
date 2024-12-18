@@ -6,7 +6,7 @@
 /*   By: tomjoy75 <tomjoy75@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:55:27 by tjoyeux           #+#    #+#             */
-/*   Updated: 2024/12/17 00:26:31 by tomjoy75         ###   ########.fr       */
+/*   Updated: 2024/12/17 19:01:18 by tomjoy75         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,7 +173,7 @@ void    mergeInsertion(Iterator first, Iterator last){
     mergeInsertion(makeGroup(first.getIt(), 2 * first.getSize()), makeGroup(end.getIt(), 2 * first.getSize()));
 //    mergeInsertion(makeGroup(first.getIt(), 2 ), makeGroup(end.getIt(), 2 ));
     printGroup(first, last);
-    insertGroup(first, size);
+//    insertGroup(first, size);
     std::cout << "\tAfter insertion" << std::endl;
     printGroup(first, last);
 }
