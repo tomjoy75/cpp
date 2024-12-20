@@ -7,7 +7,8 @@
 [Template and Jacobsthal](https://medium.com/zerone-magazine/templates-and-compile-time-execution-c22234a6cd66) \
 [Lien discord](https://discord.com/channels/774300457157918772/785407561246572554/1112889851428216862)
 # Drawing
-[Draw.io](https://app.diagrams.net/#G1qzLD8h60WpFFQuIJ7j9f6lEzIOKdi-h3#%7B%22pageId%22%3A%22xIoh2AFwNxPXTXQAX7JQ%22%7D)
+[Draw.io](https://app.diagrams.net/#G1qzLD8h60WpFFQuIJ7j9f6lEzIOKdi-h3#%7B%22pageId%22%3A%22xIoh2AFwNxPXTXQAX7JQ%22%7D) \
+![Excalidraw](img/Ford_Johnson.png)
 # Message on discord
 Salut,
 Merci <@255416214619291648>  pour les explications!
