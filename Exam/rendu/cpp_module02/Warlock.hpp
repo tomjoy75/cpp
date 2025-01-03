@@ -4,12 +4,14 @@
 #include <map>
 #include "ASpell.hpp" 
 #include "ATarget.hpp" 
+#include "SpellBook.hpp" 
 
 class Warlock {
 private:
 	std::string	_name;	
 	std::string	_title;	
-	std::map<std::string, ASpell const *> _spells;
+//	std::map<std::string, ASpell const *> _spells;
+	SpellBook	_spells;
 public:
 	Warlock( std::string const &name, std::string const &title );
 	~Warlock();
